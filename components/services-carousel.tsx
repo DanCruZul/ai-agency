@@ -1,123 +1,140 @@
-"use client"
+"use client";
 
-import { useCallback, useEffect, useState } from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
-import { MessageSquare, Zap, Globe, Timer, ChevronRight } from 'lucide-react'
-import { cn } from "@/lib/utils"
+import { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { MessageSquare, Zap, Globe, Timer, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function ServicesCarouselComponent() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
+    align: "start",
     loop: true,
     skipSnaps: false,
     dragFree: true,
-  })
+  });
 
-  const [selectedIndex, setSelectedIndex] = useState(0)
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
   const scrollTo = useCallback(
     (index: number) => emblaApi && emblaApi.scrollTo(index),
-    [emblaApi]
-  )
+    [emblaApi],
+  );
 
   const onSelect = useCallback(() => {
-    if (!emblaApi) return
-    setSelectedIndex(emblaApi.selectedScrollSnap())
-  }, [emblaApi])
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
 
   useEffect(() => {
-    if (!emblaApi) return
-    onSelect()
-    setScrollSnaps(emblaApi.scrollSnapList())
-    emblaApi.on('select', onSelect)
+    if (!emblaApi) return;
+    onSelect();
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", onSelect);
     return () => {
-      emblaApi.off('select', onSelect)
-    }
-  }, [emblaApi, onSelect])
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
   const features = [
     {
       title: "Ask anything",
-      description: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+      description:
+        "Lets users quickly find answers to their questions without having to search through multiple sources.",
       icon: MessageSquare,
-      iconBg: "bg-gradient-to-br from-[#AC6AFF] to-[#6C4AFF]",
-      cardGradient: "from-[#89F9E8] via-[#FACB7B] to-[#D87CEE]",
-      glowGradient: "from-[#AC6AFF]/20 to-[#6C4AFF]/20"
+      iconBg: "#6C4AFF",
+      iconColor: "#AC6AFF",
+      gradientStart: "rgba(108, 74, 255, 0.5)",
+      gradientEnd: "rgba(172, 106, 255, 0.2)",
     },
     {
       title: "Improve everyday",
-      description: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+      description:
+        "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
       icon: Zap,
-      iconBg: "bg-gradient-to-br from-[#FFCB6A] to-[#FF9776]",
-      cardGradient: "from-[#FFCB6A] via-[#FF9776] to-[#FF9776]",
-      glowGradient: "from-[#FFCB6A]/20 to-[#FF9776]/20"
+      iconBg: "#FF9776",
+      iconColor: "#FFCB6A",
+      gradientStart: "rgba(255, 151, 118, 0.5)",
+      gradientEnd: "rgba(255, 203, 106, 0.2)",
     },
     {
       title: "Connect everywhere",
-      description: "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient.",
+      description:
+        "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient.",
       icon: Globe,
-      iconBg: "bg-gradient-to-br from-[#7ADB78] to-[#3ABE86]",
-      cardGradient: "from-[#7ADB78] via-[#3ABE86] to-[#3ABE86]",
-      glowGradient: "from-[#7ADB78]/20 to-[#3ABE86]/20"
+      iconBg: "#3ABE86",
+      iconColor: "#7ADB78",
+      gradientStart: "rgba(58, 190, 134, 0.5)",
+      gradientEnd: "rgba(122, 219, 120, 0.2)",
     },
     {
       title: "Fast responding",
-      description: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+      description:
+        "Lets users quickly find answers to their questions without having to search through multiple sources.",
       icon: Timer,
-      iconBg: "bg-gradient-to-br from-[#FF776F] to-[#FF4B4B]",
-      cardGradient: "from-[#FF776F] via-[#FF4B4B] to-[#FF4B4B]",
-      glowGradient: "from-[#FF776F]/20 to-[#FF4B4B]/20"
-    }
-  ]
+      iconBg: "#FF4B4B",
+      iconColor: "#FF776F",
+      gradientStart: "rgba(255, 75, 75, 0.5)",
+      gradientEnd: "rgba(255, 119, 111, 0.2)",
+    },
+  ];
 
   return (
     <section className="w-full bg-[#0B0B0F] py-24">
       <div className="container px-4 mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-20">
-          Chat Smarter, Not Harder<br />
+          Chat Smarter, Not Harder
+          <br />
           with Brainwave
         </h2>
 
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-12">
+        <div className="overflow-hidden -mx-4 px-4" ref={emblaRef}>
+          <div className="flex">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="relative flex-[0_0_384px] min-h-[366px]"
+                className="flex-[0_0_90%] sm:flex-[0_0_50%] md:flex-[0_0_40%] lg:flex-[0_0_400px]
+                  min-h-[400px] px-4"
                 role="group"
                 aria-label={feature.title}
               >
-                <div className="absolute inset-0 rounded-[32px] p-[1px] bg-gradient-to-b hover:bg-gradient-to-r transition-all duration-300"
+                <div
+                  className="relative h-full rounded-[40px] p-8 overflow-hidden"
                   style={{
-                    backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0))`
+                    background: `linear-gradient(167.96deg, ${feature.gradientStart}, transparent),
+                               linear-gradient(167.96deg, transparent, ${feature.gradientEnd})`,
+                    backgroundBlendMode: "overlay",
                   }}
                 >
-                  <div className="relative h-full bg-[#0E0C15] rounded-[32px] p-8 overflow-hidden group">
-                    {/* Gradient Background */}
-                    <div 
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"
-                      style={{
-                        background: `linear-gradient(to right, ${feature.glowGradient})`
-                      }}
-                    />
+                  <div className="absolute inset-[1px] rounded-[39px] bg-[#0E0C15]/90 z-0" />
 
-                    {/* Content */}
-                    <div className="relative z-10 h-full flex flex-col">
-                      <div className={cn(
-                        "w-12 h-12 rounded-xl flex items-center justify-center mb-8",
-                        feature.iconBg
-                      )}>
-                        <feature.icon className="w-6 h-6 text-[#0E0C15]" />
-                      </div>
+                  {/* Content */}
+                  <div className="relative z-10 h-full flex flex-col">
+                    {/* Icon */}
+                    <div
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8"
+                      style={{ backgroundColor: feature.iconBg }}
+                    >
+                      <feature.icon
+                        className="w-8 h-8"
+                        style={{ color: feature.iconColor }}
+                      />
+                    </div>
 
-                      <h3 className="text-white text-xl font-semibold mb-4">{feature.title}</h3>
-                      <p className="text-white/70 text-sm mb-8 flex-grow">{feature.description}</p>
+                    {/* Text Content */}
+                    <h3 className="text-white text-2xl font-semibold mb-4">
+                      {feature.title}
+                    </h3>
+                    <p className="text-[#757185] text-base mb-auto">
+                      {feature.description}
+                    </p>
 
-                      <div className="flex items-center text-white group/link">
-                        <span className="text-sm font-medium mr-5">explore more</span>
-                        <ChevronRight className="w-6 h-6 group-hover/link:translate-x-1 transition-transform" />
-                      </div>
+                    {/* Explore More Link */}
+                    <div className="flex items-center mt-8">
+                      <span className="text-white text-sm font-medium tracking-wider uppercase mr-4">
+                        EXPLORE MORE
+                      </span>
+                      <ArrowRight className="w-5 h-5 text-white" />
                     </div>
                   </div>
                 </div>
@@ -127,25 +144,22 @@ export function ServicesCarouselComponent() {
         </div>
 
         {/* Pagination */}
-        <div className="flex justify-center items-center gap-4 mt-12">
+        <div className="flex justify-center items-center gap-3 mt-12">
           {scrollSnaps.map((_, index) => (
             <button
               key={index}
               onClick={() => scrollTo(index)}
               className={cn(
-                "w-6 h-6 rounded-full flex items-center justify-center transition-all",
-                selectedIndex === index ? "bg-gradient-to-r from-[#89F9E8] via-[#FACB7B] to-[#D87CEE]" : ""
+                "h-2 rounded-full transition-all duration-300",
+                selectedIndex === index
+                  ? "w-8 bg-white"
+                  : "w-2 bg-white/20 hover:bg-white/40",
               )}
               aria-label={`Go to slide ${index + 1}`}
-            >
-              <div className={cn(
-                "w-1.5 h-1.5 rounded-full transition-all",
-                selectedIndex === index ? "bg-white" : "bg-white/50"
-              )} />
-            </button>
+            />
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
