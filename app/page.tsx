@@ -2,6 +2,10 @@
 import { LandingPageComponent } from "@/components/landing-page";
 import { FeatureCarouselComponent } from "@/components/feature-carousel";
 import { ServicesCarouselComponent } from "@/components/services-carousel";
+import { PricingSectionComponent } from "@/components/pricing-section";
+import { AiCreativeToolUi } from "@/components/ai-creative-tool-ui";
+import { AiChatBotSection } from "@/components/ai-chat-bot-section";
+import { AiChatSection } from "@/components/ai-chat-section";
 
 export default function HomePage() {
   return (
@@ -9,6 +13,10 @@ export default function HomePage() {
       <LandingPageComponent />
       <ServicesCarouselComponent />
       <FeatureCarouselComponent />
+      <AiChatSection />
+      <AiChatBotSection />
+      <AiCreativeToolUi />
+      <PricingSectionComponent />
     </main>
   );
 }
