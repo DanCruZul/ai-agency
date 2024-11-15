@@ -3,30 +3,37 @@
 import { useState, useEffect } from 'react'
 import { Check } from 'lucide-react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 const appIcons = [
-  { name: 'Figma', src: '/placeholder.svg?height=40&width=40&text=Figma', position: 'top' },
-  { name: 'Notion', src: '/placeholder.svg?height=40&width=40&text=N', position: 'top-right' },
-  { name: 'Discord', src: '/placeholder.svg?height=40&width=40&text=Discord', position: 'right' },
-  { name: 'Jira', src: '/placeholder.svg?height=40&width=40&text=Jira', position: 'bottom-right' },
-  { name: 'Photoshop', src: '/placeholder.svg?height=40&width=40&text=Ps', position: 'bottom' },
-  { name: 'Invision', src: '/placeholder.svg?height=40&width=40&text=In', position: 'bottom-left' },
-  { name: 'Teams', src: '/placeholder.svg?height=40&width=40&text=Teams', position: 'left' },
-  { name: 'Dropbox', src: '/placeholder.svg?height=40&width=40&text=Dropbox', position: 'top-left' },
+  { name: 'Figma', src: '/figma-icon.svg', position: 'top', delay: 0.2 },
+  { name: 'Notion', src: '/notion-icon.svg', position: 'top-right', delay: 0.3 },
+  { name: 'Discord', src: '/discord-icon.svg', position: 'right', delay: 0.4 },
+  { name: 'Jira', src: '/jira-icon.svg', position: 'bottom-right', delay: 0.5 },
+  { name: 'Photoshop', src: '/photoshop-icon.svg', position: 'bottom', delay: 0.6 },
+  { name: 'Invision', src: '/invision-icon.svg', position: 'bottom-left', delay: 0.7 },
+  { name: 'Teams', src: '/teams-icon.svg', position: 'left', delay: 0.8 },
+  { name: 'Dropbox', src: '/dropbox-icon.svg', position: 'top-left', delay: 0.9 }
 ]
 
-const getIconPosition = (position) => {
-  switch (position) {
-    case 'top': return 'top-0 left-1/2 -translate-x-1/2';
-    case 'top-right': return 'top-[15%] right-[15%]';
-    case 'right': return 'top-1/2 right-0 -translate-y-1/2';
-    case 'bottom-right': return 'bottom-[15%] right-[15%]';
-    case 'bottom': return 'bottom-0 left-1/2 -translate-x-1/2';
-    case 'bottom-left': return 'bottom-[15%] left-[15%]';
-    case 'left': return 'top-1/2 left-0 -translate-y-1/2';
-    case 'top-left': return 'top-[15%] left-[15%]';
-    default: return '';
+const features = [
+  'Seamless Integration',
+  'Smart Automation',
+  'Top-notch Security'
+]
+
+const getIconPosition = (position: string) => {
+  const positions = {
+    'top': 'top-0 left-1/2 -translate-x-1/2',
+    'top-right': 'top-[15%] right-[15%]',
+    'right': 'top-1/2 right-0 -translate-y-1/2',
+    'bottom-right': 'bottom-[15%] right-[15%]',
+    'bottom': 'bottom-0 left-1/2 -translate-x-1/2',
+    'bottom-left': 'bottom-[15%] left-[15%]',
+    'left': 'top-1/2 left-0 -translate-y-1/2',
+    'top-left': 'top-[15%] left-[15%]'
   }
+  return positions[position] || ''
 }
 
 export function AiChatSection() {
@@ -38,87 +45,124 @@ export function AiChatSection() {
     }
 
     window.addEventListener('mousemove', handleMouseMove)
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-    }
+    return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
   return (
     <section className="relative w-full bg-[#0B0B0F] overflow-hidden py-24">
-      <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
-        {/* Left side content */}
-        <div className="w-full lg:w-1/2 mb-12 lg:mb-0">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
-            AI chat app for<br />seamless<br />collaboration
-          </h2>
-          <ul className="space-y-4 mb-8">
-            {['Seamless Integration', 'Smart Automation', 'Top-notch Security'].map((feature, index) => (
-              <li key={index} className="flex items-center text-white">
-                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#AC6AFF] mr-3">
-                  <Check className="w-4 h-4 text-[#0B0B0F]" />
-                </span>
-                {feature}
-              </li>
-            ))}
-          </ul>
-          <button className="relative inline-flex group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#89F9E8] via-[#FACB7B] to-[#D87CEE] rounded-full opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt blur-sm"></div>
-            <span className="relative px-8 py-3 bg-[#0B0B0F] text-[#E6E6E6] rounded-full leading-none flex items-center divide-x divide-gray-600">
-              TRY IT NOW
-            </span>
-          </button>
-        </div>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
+          {/* Left side content */}
+          <motion.div 
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+              AI chat app for<br />seamless<br />collaboration
+            </h2>
+            <ul className="space-y-4 mb-8">
+              {features.map((feature, index) => (
+                <motion.li 
+                  key={index} 
+                  className="flex items-center text-white"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#AC6AFF] mr-3">
+                    <Check className="w-4 h-4 text-[#0B0B0F]" />
+                  </span>
+                  {feature}
+                </motion.li>
+              ))}
+            </ul>
+            <motion.button 
+              className="relative inline-flex group"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#89F9E8] via-[#FACB7B] to-[#D87CEE] rounded-full opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt blur-sm"></div>
+              <span className="relative px-8 py-3 bg-[#0B0B0F] text-[#E6E6E6] rounded-full leading-none flex items-center divide-x divide-gray-600">
+                TRY IT NOW
+              </span>
+            </motion.button>
+          </motion.div>
 
-        {/* Right side content */}
-        <div className="w-full lg:w-1/2 relative">
-          <p className="text-[#757185] mb-8 text-center">
-            With smart automation and top-notch security, it's the perfect solution for teams looking to work smarter.
-          </p>
-          <div className="relative w-[500px] h-[500px] mx-auto">
-            {/* Circular gradient border */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#AC6AFF] via-[#5B37B7] to-[#AC6AFF] opacity-50 blur-lg" />
-            <div className="absolute inset-2 rounded-full bg-[#0B0B0F]" />
-
-            {/* Brain icon */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <svg width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="46" cy="46" r="46" fill="url(#paint0_linear)" />
-                <path d="M71.9676 43.7065C71.9676 43.7065 66.0762 40.8131 64.3762 36.1198C62.6762 31.4265 64.3762 26.7331 64.3762 26.7331C64.3762 26.7331 58.4849 30.4598 55.0889 30.4598C51.6929 30.4598 46.9289 28.1798 46.9289 28.1798C46.9289 28.1798 44.0889 33.5998 39.8969 34.2931C35.7049 34.9865 31.5129 32.7065 31.5129 32.7065C31.5129 32.7065 31.5129 38.1265 28.6729 41.8531C25.8329 45.5798 20.0002 46.9598 20.0002 46.9598C20.0002 46.9598 25.2889 51.6531 25.8329 55.3798C26.3769 59.1065 24.1329 64.4931 24.1329 64.4931C24.1329 64.4931 29.7609 62.2131 33.4609 63.5931C37.1609 64.9731 40.3169 69.6665 40.3169 69.6665C40.3169 69.6665 44.5089 65.2465 48.7009 64.5531C52.8929 63.8598 57.6289 66.1398 57.6289 66.1398C57.6289 66.1398 59.5289 60.0265 63.4689 57.6598C67.4089 55.2931 72.9996 55.9865 72.9996 55.9865C72.9996 55.9865 70.2169 50.9598 70.7609 47.2331C71.3049 43.5065 71.9676 43.7065 71.9676 43.7065Z" fill="url(#paint1_linear)" />
-                <defs>
-                  <linearGradient id="paint0_linear" x1="46" y1="0" x2="46" y2="92" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#AC6AFF" />
-                    <stop offset="1" stopColor="#6C4AFF" />
-                  </linearGradient>
-                  <linearGradient id="paint1_linear" x1="20.0002" y1="47.9231" x2="72.9996" y2="47.9231" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#89F9E8" />
-                    <stop offset="0.5" stopColor="#FACB7B" />
-                    <stop offset="1" stopColor="#D87CEE" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-
-            {/* App icons */}
-            {appIcons.map((app, index) => (
-              <div
-                key={app.name}
-                className={`absolute w-12 h-12 ${getIconPosition(app.position)}`}
+          {/* Right side content */}
+          <div className="w-full lg:w-1/2 relative">
+            <motion.p 
+              className="text-[#757185] mb-12 text-center max-w-md mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              With smart automation and top-notch security, it's the perfect solution for teams looking to work smarter.
+            </motion.p>
+            
+            {/* Circular app icons */}
+            <div className="relative w-[500px] h-[500px] mx-auto">
+              {/* Center circle with gradient border */}
+              <motion.div 
+                className="absolute inset-0 rounded-full"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8 }}
               >
-                <Image
-                  src={app.src}
-                  alt={app.name}
-                  width={48}
-                  height={48}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            ))}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#AC6AFF] via-[#5B37B7] to-[#AC6AFF] opacity-50 blur-lg" />
+                <div className="absolute inset-2 rounded-full bg-[#0B0B0F]" />
+                
+                {/* Center icon */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <motion.div
+                    className="w-20 h-20 rounded-full bg-gradient-to-r from-[#89F9E8] via-[#FACB7B] to-[#D87CEE] p-[1px]"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  >
+                    <div className="w-full h-full rounded-full bg-[#0B0B0F] flex items-center justify-center">
+                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 2L21 7M16 2L11 7M16 2V22M21 7H26L23 10M21 7L16 12M11 7H6L9 10M11 7L16 12M23 10L28 15L23 20M23 10L16 12M9 10L4 15L9 20M9 10L16 12M23 20L21 25H16M23 20L16 22M9 20L11 25H16M9 20L16 22" stroke="url(#paint0_linear)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <defs>
+                          <linearGradient id="paint0_linear" x1="4" y1="2" x2="28" y2="25" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#89F9E8"/>
+                            <stop offset="0.5" stopColor="#FACB7B"/>
+                            <stop offset="1" stopColor="#D87CEE"/>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* App icons */}
+              {appIcons.map((app, index) => (
+                <motion.div
+                  key={app.name}
+                  className={`absolute w-12 h-12 ${getIconPosition(app.position)}`}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: app.delay }}
+                >
+                  <div className="w-full h-full rounded-xl bg-[#1A1A1F] p-2 backdrop-blur-sm border border-white/10">
+                    <Image
+                      src={app.src}
+                      alt={app.name}
+                      width={32}
+                      height={32}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Background gradient */}
+      {/* Mouse follow gradient */}
       <div 
         className="absolute inset-0 bg-gradient-radial from-purple-900/20 to-transparent opacity-50 pointer-events-none"
         style={{
