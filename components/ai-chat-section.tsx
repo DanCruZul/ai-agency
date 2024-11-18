@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { Check } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Button } from "./ui/button";
 
 const appIcons = [
   { name: "Figma", src: "/figma-icon.svg", position: "top", delay: 0.2 },
@@ -60,20 +60,9 @@ const getIconPosition = (position: IconPosition): string => {
 };
 
 export function AiChatSection() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
     <section className="relative w-full bg-[#0B0B0F] overflow-hidden py-24">
-      <div className="container mx-auto px-4">
+      <div className="max-w-[1280px] mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
           {/* Left side content */}
           <motion.div
@@ -105,24 +94,13 @@ export function AiChatSection() {
                 </motion.li>
               ))}
             </ul>
-            <motion.button
-              className="relative inline-flex group"
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <div
-                className="absolute -inset-0.5 bg-gradient-to-r from-[#89F9E8] via-[#FACB7B] to-[#D87CEE]
-                  rounded-full opacity-75 group-hover:opacity-100 transition duration-1000
-                  group-hover:duration-200 animate-tilt blur-sm"
-              ></div>
-              <span
-                className="relative px-8 py-3 bg-[#0B0B0F] text-[#E6E6E6] rounded-full leading-none flex
-                  items-center divide-x divide-gray-600"
-              >
-                TRY IT NOW
-              </span>
-            </motion.button>
+              <Button neon>TRY IT NOW</Button>
+            </motion.div>
           </motion.div>
 
           {/* Right side content */}
@@ -226,15 +204,6 @@ export function AiChatSection() {
           </div>
         </div>
       </div>
-
-      {/* Mouse follow gradient */}
-      <div
-        className="absolute inset-0 bg-gradient-radial from-purple-900/20 to-transparent opacity-50
-          pointer-events-none"
-        style={{
-          background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(139, 92, 246, 0.15), transparent 80%)`,
-        }}
-      />
     </section>
   );
 }
