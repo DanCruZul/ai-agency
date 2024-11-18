@@ -7,6 +7,7 @@ import { AiChatSection } from "@/components/ai-chat-section";
 import { AiChatBotSection } from "@/components/ai-chat-bot-section";
 import { AiCreativeToolUi } from "@/components/ai-creative-tool-ui";
 import { PricingSectionComponent } from "@/components/pricing-section";
+import { TestimonialSection } from "@/components/testimonial-section";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <AiChatBotSection />
       <AiCreativeToolUi />
       <PricingSectionComponent />
+      <TestimonialSection />
     </main>
   );
 }

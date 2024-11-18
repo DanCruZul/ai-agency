@@ -2,9 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 

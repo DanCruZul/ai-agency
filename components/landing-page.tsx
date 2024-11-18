@@ -1,11 +1,11 @@
 'use client'
 
 import React from 'react'
-import { NavBar } from './navigation/nav-bar'
-import { HeroSection } from './hero/hero-section'
-import { BrowserDemo } from './browser/browser-demo'
-import { ClientLogos } from './client-logos/client-logos'
-import { BackgroundElements } from './background/background-elements'
+import { NavBar } from './nav-bar'
+import { HeroSection } from './hero-section'
+import { BrowserDemo } from './browser-demo'
+import { ClientLogos } from './client-logos'
+import { BackgroundElements } from './background-elements'
 
 export function LandingPageComponent() {
   return (

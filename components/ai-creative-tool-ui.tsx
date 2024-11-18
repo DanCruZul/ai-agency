@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Play, Mic, ImageIcon, Maximize2, Volume2 } from "lucide-react";
-import box1Image from '@/assets/box 1.png'
-import box3Image from '@/assets/box 3.png'
+import box1Image from "../assets/box 1.png";
+import box3Image from "../assets/box 3.png";
 
 export function AiCreativeToolUi() {
   return (
@@ -136,7 +136,7 @@ export function AiCreativeToolUi() {
                 Photo editing
               </h2>
               <p className="text-white/70 text-sm mb-6">
-                Automatically enhance your photos using our AI app's photo
+                Automatically enhance your photos using our AI app&apos;s photo
                 editing feature.
               </p>
               <div className="relative flex-1 rounded-xl overflow-hidden">
@@ -170,7 +170,7 @@ export function AiCreativeToolUi() {
                 Video generation
               </h2>
               <p className="text-white/70 text-sm mb-6">
-                The world's most powerful AI photo and video art generation
+                The world&apos;s most powerful AI photo and video art generation
                 engine.
               </p>
 

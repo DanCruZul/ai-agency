@@ -1,11 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Mic } from "lucide-react";
 import { motion } from "framer-motion";
-import connectSectionImage from '../assets/connect section.png'
+import connectSectionImage from "../assets/connect section.png";
 
 const steps = [
   {
@@ -43,29 +42,21 @@ export function AiChatBotSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative max-w-[550px] aspect-square mx-auto">
+            <div className="relative max-w-[550px] mx-auto">
               {/* Background Glow Effect */}
               <div
                 className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-transparent
                   to-blue-600/20 rounded-[32px] blur-xl"
               />
-              <Image
-                src={connectSectionImage}
-                alt="AI Chat Interface"
-                width={550}
-                height={550}
-                className="rounded-[32px] w-full h-full object-cover"
-                priority
-              />
-              {/* Main Chat Card */}
-              <div className="relative bg-[#13131A] rounded-[32px] p-8 h-full border border-white/10">
-                {/* 3D Character Image */}
-                <div className="relative h-3/4 mb-8">
+              <div className="relative bg-[#13131A] rounded-[32px] p-8 border border-white/10">
+                {/* Image Section */}
+                <div className="relative w-full aspect-square mb-8">
                   <Image
-                    src="/assets/robot.png"
-                    alt="AI Robot"
+                    src={connectSectionImage}
+                    alt="AI Chat Interface"
                     fill
-                    className="object-contain"
+                    className="object-cover rounded-2xl"
+                    sizes="(max-width: 768px) 100vw, 550px"
                     priority
                   />
                 </div>
