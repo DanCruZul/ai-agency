@@ -2,10 +2,29 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import Image from 'next/image'
+import robotImage from '../../assets/robot.png'
 
 export function HeroSection() {
   return (
-    <div className="max-w-[1200px] mx-auto text-center">
+    <div className="max-w-[1200px] mx-auto text-center relative min-h-[600px] flex flex-col justify-center">
+      <motion.div
+        className="absolute top-1/2 right-[-100px] transform -translate-y-1/2"
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="relative w-[600px] h-[600px]">
+          <Image
+            src={robotImage}
+            alt="AI Robot"
+            fill
+            style={{ objectFit: 'contain' }}
+            className="opacity-80"
+            priority
+          />
+        </div>
+      </motion.div>
       <motion.h1 
         className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
         initial={{ opacity: 0, y: 20 }}
