@@ -28,7 +28,7 @@ const features = [
 
 export function AiCreativeToolUi() {
   return (
-    <section className="relative w-full bg-[#0A0A0F] overflow-hidden py-20">
+    <section className="relative w-full overflow-hidden py-20">
       {/* Background Gradients */}
       <div className="absolute inset-0">
         <div

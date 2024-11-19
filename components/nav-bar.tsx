@@ -6,10 +6,7 @@ import { Button } from "./ui/button";
 
 export function NavBar() {
   return (
-    <nav
-      className="fixed top-0 z-50 w-full px-6 h-[84px] bg-black/40 backdrop-blur-md border-b
-        border-white/5"
-    >
+    <nav className="fixed top-0 z-50 w-full px-6 h-[84px] backdrop-blur-md border-b border-white/5">
       <div className="flex items-center justify-between h-full max-w-[1440px] mx-auto">
         <Link href="/" className="flex items-center gap-3">
           <div className="w-8 h-8">

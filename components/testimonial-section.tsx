@@ -25,9 +25,8 @@ function TestimonialCard({
 
   return (
     <motion.div
-      className="relative w-[480px] h-[320px] bg-gradient-to-br from-[#111111] to-[#1A1A1A]
-        rounded-2xl border border-white/10 p-8 overflow-hidden hover:border-white/20
-        transition-all duration-300"
+      className="relative w-[480px] h-[320px] bg-[#0A0A0F]/60 rounded-2xl border border-white/10
+        p-8 overflow-hidden hover:border-white/20 transition-all duration-300"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
@@ -180,7 +179,7 @@ export function TestimonialSection() {
   }, [emblaApi]);
 
   return (
-    <section className="relative w-full bg-[#0A0A0A] py-20">
+    <section className="relative w-full py-20">
       <div className="max-w-[1200px] mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">

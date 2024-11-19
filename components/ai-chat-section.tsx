@@ -61,7 +61,7 @@ const getIconPosition = (position: IconPosition): string => {
 
 export function AiChatSection() {
   return (
-    <section className="relative w-full bg-[#0B0B0F] overflow-hidden py-24">
+    <section className="relative w-full overflow-hidden py-24">
       <div className="max-w-[1280px] mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
           {/* Left side content */}

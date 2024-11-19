@@ -45,7 +45,7 @@ const pricingPlans = [
 
 export function PricingSectionComponent() {
   return (
-    <section className="relative w-full bg-[#030014] py-24 overflow-hidden">
+    <section className="relative w-full py-24 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]">
