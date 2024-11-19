@@ -5,7 +5,6 @@ import { NavBar } from "./nav-bar";
 import { HeroSection } from "./hero-section";
 import { BrowserDemo } from "./browser-demo";
 import { ClientLogos } from "./client-logos";
-import { BackgroundElements } from "./background-elements";
 
 export function LandingPageComponent() {
   return (

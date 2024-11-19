@@ -27,10 +27,13 @@ export function BackgroundElements() {
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0F] via-[#1a1a2e] to-[#0B0B0F]">
+      {/* Base Background */}
+      <div className="absolute inset-0 bg-background">
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml,...')] opacity-20" />
+          <div
+            className="absolute inset-0
+              bg-[radial-gradient(circle_at_center,rgba(123,44,191,0.15)_0%,transparent_70%)]"
+          />
         </div>
       </div>
 
@@ -38,7 +41,7 @@ export function BackgroundElements() {
       {particles.map((particle, index) => (
         <motion.div
           key={index}
-          className="absolute rounded-full bg-blue-500/30"
+          className="absolute rounded-full bg-electric-cyan/30"
           style={{
             x: particle.x,
             y: particle.y,
@@ -57,12 +60,12 @@ export function BackgroundElements() {
         />
       ))}
 
-      {/* Floating Elements */}
+      {/* Gradient Orbs */}
       <motion.div
         className="absolute w-[800px] h-[800px] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(56,189,248,0.1) 0%, rgba(0,0,0,0) 70%)",
+            "radial-gradient(circle, rgba(46,196,182,0.1) 0%, rgba(0,0,0,0) 70%)",
           top: "50%",
           left: "50%",
           x: "-50%",
@@ -72,19 +75,19 @@ export function BackgroundElements() {
       />
 
       <motion.div
-        className="absolute w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"
+        className="absolute w-64 h-64 bg-quantum/10 rounded-full blur-3xl"
         style={{ y: y1, x: "25%" }}
       />
 
       <motion.div
-        className="absolute w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"
+        className="absolute w-64 h-64 bg-ai-mint/10 rounded-full blur-3xl"
         style={{ y: y2, right: "25%" }}
       />
 
-      {/* Grid Pattern */}
+      {/* Neural Grid Pattern */}
       <div
         className="absolute inset-0
-          bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)]
+          bg-[linear-gradient(rgba(123,44,191,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(123,44,191,0.05)_1px,transparent_1px)]
           bg-[size:100px_100px]
           [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
       />

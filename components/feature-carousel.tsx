@@ -11,17 +11,17 @@ const features = [
   {
     title: "Code Generation",
     description: "Generate code automatically with AI assistance",
-    gradient: "from-[#89F9E8] to-[#FACB7B]",
+    gradient: "from-quantum to-ai-mint",
   },
   {
     title: "Smart Automation",
     description: "Automate your workflow with AI-powered tools",
-    gradient: "from-[#FACB7B] to-[#D87CEE]",
+    gradient: "from-ai-mint to-electric-cyan",
   },
   {
     title: "Natural Language",
     description: "Interact naturally with AI using plain language",
-    gradient: "from-[#D87CEE] to-[#89F9E8]",
+    gradient: "from-electric-cyan to-quantum",
   },
 ];
 
@@ -91,8 +91,8 @@ export function FeatureCarouselComponent() {
         varying vec3 vPosition;
         uniform float time;
         
-        vec3 colorA = vec3(0.0, 0.8, 1.0); // Cyan
-        vec3 colorB = vec3(0.8, 0.2, 1.0); // Purple
+        vec3 colorA = vec3(0.48, 0.17, 0.75); // #7B2CBF (Quantum)
+        vec3 colorB = vec3(0.18, 0.77, 0.71); // #2EC4B6 (AI Mint)
         
         void main() {
           float t = (vPosition.x + vPosition.y + vPosition.z) * 0.3 + time;
@@ -129,7 +129,7 @@ export function FeatureCarouselComponent() {
   const scrollNext = () => cardsApi?.scrollNext();
 
   return (
-    <section className="w-full bg-[#0B0B0F] py-24 overflow-hidden">
+    <section className="w-full bg-background py-24 overflow-hidden">
       <div className="container px-4 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Static Content */}
@@ -143,28 +143,14 @@ export function FeatureCarouselComponent() {
               <h2 className="text-5xl font-bold text-white leading-tight">
                 Unlock the
                 <br />
-                power of AI
+                power of <span className="gradient-text">AI</span>
               </h2>
-              <p className="text-lg text-[#B6B6B6]">
+              <p className="text-lg text-white/60">
                 Brainwave unlocks the potential of AI-powered applications
               </p>
             </div>
-            <Button
-              variant="outline"
-              className="h-12 px-8 relative group border-transparent bg-gradient-to-r from-[#89F9E8]
-                via-[#FACB7B] to-[#D87CEE] p-[1px] hover:p-[2px] transition-all uppercase
-                text-xs tracking-wider font-medium"
-            >
-              <span
-                className="absolute inset-[1px] bg-[#0B0B0F] rounded-sm group-hover:bg-opacity-80
-                  transition-colors"
-              />
-              <span
-                className="relative bg-gradient-to-r from-[#89F9E8] via-[#FACB7B] to-[#D87CEE] bg-clip-text
-                  text-transparent"
-              >
-                See how it works
-              </span>
+            <Button variant="ai" className="h-12 px-8">
+              See how it works
             </Button>
           </motion.div>
 
@@ -180,21 +166,18 @@ export function FeatureCarouselComponent() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: index * 0.2 }}
                   >
-                    <div
-                      className="relative aspect-[4/3] rounded-3xl bg-gradient-to-br from-[#2A2A3C] to-[#0B0B0F]
-                        overflow-hidden"
-                    >
-                      <div className="absolute inset-0 flex flex-col justify-end p-6">
+                    <div className="holo-card aspect-[4/3] p-8">
+                      <div className="h-full flex flex-col justify-end">
                         <div
                           className={`w-12 h-12 mb-4 rounded-xl bg-gradient-to-r ${feature.gradient} flex items-center
                           justify-center`}
                         >
-                          <div className="w-6 h-6 bg-[#0B0B0F]/40 backdrop-blur rounded-lg" />
+                          <div className="w-6 h-6 bg-background/40 backdrop-blur rounded-lg" />
                         </div>
                         <h3 className="text-xl font-semibold text-white mb-2">
                           {feature.title}
                         </h3>
-                        <p className="text-[#B6B6B6] text-sm">
+                        <p className="text-white/60 text-sm">
                           {feature.description}
                         </p>
                       </div>
@@ -208,28 +191,31 @@ export function FeatureCarouselComponent() {
             <div className="flex items-center justify-center gap-4 mt-8">
               <button
                 onClick={scrollPrev}
-                className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center
-                  hover:bg-white/5 transition-colors"
+                className="w-12 h-12 rounded-full border border-quantum/20 flex items-center justify-center
+                  hover:bg-quantum/5 transition-colors"
                 aria-label="Previous slide"
               >
-                <ArrowLeft className="w-5 h-5 text-white/50" />
+                <ArrowLeft className="w-5 h-5 text-electric-cyan" />
               </button>
               <div className="flex gap-2">
                 {features.map((_, index) => (
                   <div
                     key={index}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    activeIndex === index ? "w-8 bg-white" : "bg-white/20" }`}
+                    className={`transition-all duration-300 ${
+                    activeIndex === index
+                        ? "w-8 bg-quantum"
+                        : "w-2 bg-quantum/20"
+                    } h-2 rounded-full`}
                   />
                 ))}
               </div>
               <button
                 onClick={scrollNext}
-                className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center
-                  hover:bg-white/5 transition-colors"
+                className="w-12 h-12 rounded-full border border-quantum/20 flex items-center justify-center
+                  hover:bg-quantum/5 transition-colors"
                 aria-label="Next slide"
               >
-                <ArrowRight className="w-5 h-5 text-white/50" />
+                <ArrowRight className="w-5 h-5 text-electric-cyan" />
               </button>
             </div>
           </div>

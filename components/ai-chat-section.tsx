@@ -76,7 +76,7 @@ export function AiChatSection() {
               <br />
               seamless
               <br />
-              collaboration
+              <span className="gradient-text">collaboration</span>
             </h2>
             <ul className="space-y-4 mb-8">
               {features.map((feature, index) => (
@@ -87,8 +87,8 @@ export function AiChatSection() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#AC6AFF] mr-3">
-                    <Check className="w-4 h-4 text-[#0B0B0F]" />
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-quantum mr-3">
+                    <Check className="w-4 h-4 text-background" />
                   </span>
                   {feature}
                 </motion.li>
@@ -99,14 +99,14 @@ export function AiChatSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <Button neon>TRY IT NOW</Button>
+              <Button variant="ai">TRY IT NOW</Button>
             </motion.div>
           </motion.div>
 
           {/* Right side content */}
           <div className="w-full lg:w-1/2 relative">
             <motion.p
-              className="text-[#757185] mb-12 text-center max-w-md mx-auto"
+              className="text-white/60 mb-12 text-center max-w-md mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -125,16 +125,16 @@ export function AiChatSection() {
                 transition={{ duration: 0.8 }}
               >
                 <div
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-[#AC6AFF] via-[#5B37B7]
-                    to-[#AC6AFF] opacity-50 blur-lg"
+                  className="absolute inset-0 rounded-full bg-gradient-to-r from-quantum via-neural
+                    to-quantum opacity-50 blur-lg"
                 />
-                <div className="absolute inset-2 rounded-full bg-[#0B0B0F]/95 blur-lg" />
+                <div className="absolute inset-2 rounded-full bg-background/95 blur-lg" />
 
                 {/* Center icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <motion.div
-                    className="w-20 h-20 rounded-full bg-gradient-to-r from-[#89F9E8] via-[#FACB7B]
-                      to-[#D87CEE] p-[1px]"
+                    className="w-20 h-20 rounded-full bg-gradient-to-r from-ai-mint via-electric-cyan
+                      to-quantum p-[1px]"
                     animate={{ rotate: 360 }}
                     transition={{
                       duration: 20,
@@ -142,7 +142,7 @@ export function AiChatSection() {
                       ease: "linear",
                     }}
                   >
-                    <div className="w-full h-full rounded-full bg-[#0B0B0F] flex items-center justify-center">
+                    <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
                       <svg
                         width="32"
                         height="32"
@@ -166,9 +166,9 @@ export function AiChatSection() {
                             y2="25"
                             gradientUnits="userSpaceOnUse"
                           >
-                            <stop stopColor="#89F9E8" />
-                            <stop offset="0.5" stopColor="#FACB7B" />
-                            <stop offset="1" stopColor="#D87CEE" />
+                            <stop stopColor="#2EC4B6" />
+                            <stop offset="0.5" stopColor="#20E3B2" />
+                            <stop offset="1" stopColor="#7B2CBF" />
                           </linearGradient>
                         </defs>
                       </svg>
@@ -186,10 +186,7 @@ export function AiChatSection() {
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, delay: app.delay }}
                 >
-                  <div
-                    className="w-full h-full rounded-xl bg-[#1A1A1F] p-2 backdrop-blur-sm border
-                      border-white/10"
-                  >
+                  <div className="holo-card w-full h-full p-2">
                     <Image
                       src={app.src}
                       alt={app.name}
