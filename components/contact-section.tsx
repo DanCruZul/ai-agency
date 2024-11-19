@@ -18,8 +18,9 @@ export function ContactSection() {
             transition={{ duration: 1 }}
           >
             <div
-              className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600/20
-                via-blue-600/20 to-purple-600/20 blur-3xl"
+              className="absolute inset-0 rounded-full
+                bg-[radial-gradient(ellipse_at_center,rgba(123,44,191,0.15)_0%,rgba(32,227,178,0.15)_100%)]
+                blur-3xl"
             />
           </motion.div>
 
@@ -27,7 +28,7 @@ export function ContactSection() {
           {[...Array(5)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 rounded-full bg-purple-500/50"
+              className="absolute w-2 h-2 rounded-full bg-electric-cyan/30"
               style={{
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
@@ -55,20 +56,29 @@ export function ContactSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Be part of the future of
-            <br />
+            Be part of the future of{" "}
             <span className="relative inline-block">
-              Brainwave
-              <div className="absolute -bottom-2 left-0 w-full h-2">
+              <span
+                className="relative z-10 bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
+                  bg-clip-text text-transparent animate-gradient-x"
+              >
+                Brainwave
+              </span>
+              <motion.div
+                className="absolute -bottom-2 left-0 w-full h-2"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
                 <div
-                  className="w-full h-full bg-gradient-to-r from-[#89F9E8] via-[#FACB7B] to-[#D87CEE]
+                  className="w-full h-full bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
                     rounded-full opacity-75 blur-sm"
                 />
                 <div
-                  className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#89F9E8] via-[#FACB7B]
-                    to-[#D87CEE] rounded-full opacity-90"
+                  className="absolute inset-0 w-full h-full bg-gradient-to-r from-quantum via-ai-mint
+                    to-electric-cyan rounded-full opacity-90"
                 />
-              </div>
+              </motion.div>
             </span>
           </motion.h2>
           <motion.p
@@ -89,7 +99,7 @@ export function ContactSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
+          <div className="bg-neural/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
             <form className="space-y-6">
               <div>
                 <label
@@ -101,8 +111,8 @@ export function ContactSection() {
                 <input
                   type="text"
                   id="name"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white
-                    placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-purple-500/50
+                  className="w-full bg-neural/5 border border-white/10 rounded-lg px-4 py-3 text-white
+                    placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-quantum/50
                     transition-all"
                   placeholder="Enter your name"
                 />
@@ -117,8 +127,8 @@ export function ContactSection() {
                 <input
                   type="email"
                   id="email"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white
-                    placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-purple-500/50
+                  className="w-full bg-neural/5 border border-white/10 rounded-lg px-4 py-3 text-white
+                    placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-quantum/50
                     transition-all"
                   placeholder="Enter your email"
                 />
@@ -133,18 +143,19 @@ export function ContactSection() {
                 <textarea
                   id="message"
                   rows={4}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white
-                    placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-purple-500/50
+                  className="w-full bg-neural/5 border border-white/10 rounded-lg px-4 py-3 text-white
+                    placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-quantum/50
                     transition-all resize-none"
                   placeholder="Enter your message"
                 />
               </div>
-              <Button
-                className="w-full bg-gradient-to-r from-[#89F9E8] via-[#FACB7B] to-[#D87CEE] text-black
-                  font-medium py-3 rounded-lg hover:opacity-90 transition-opacity"
-              >
-                Send Message
-                <Send className="w-4 h-4 ml-2" />
+              <Button variant="ai" className="w-full group">
+                <span className="relative z-10">Send Message</span>
+                <Send className="w-4 h-4 ml-2 relative z-10" />
+                <div
+                  className="absolute inset-0 bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
+                    opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                />
               </Button>
             </form>
           </div>

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Mic } from "lucide-react";
 import { motion } from "framer-motion";
-import connectSectionImage from "../assets/connect section.png";
 
 const steps = [
   {
@@ -45,14 +44,14 @@ export function AiChatBotSection() {
             <div className="relative max-w-[550px] mx-auto">
               {/* Background Glow Effect */}
               <div
-                className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-transparent
-                  to-blue-600/20 rounded-[32px] blur-xl"
+                className="absolute inset-0 bg-gradient-to-br from-quantum/20 via-ai-mint/20
+                  to-electric-cyan/20 rounded-[32px] blur-xl"
               />
-              <div className="relative bg-[#13131A] rounded-[32px] p-8 border border-white/10">
+              <div className="relative bg-neural/5 rounded-[32px] p-8 border border-white/10 backdrop-blur-xl">
                 {/* Image Section */}
                 <div className="relative w-full aspect-square mb-8">
                   <Image
-                    src={connectSectionImage}
+                    src="/connect section.png"
                     alt="AI Chat Interface"
                     fill
                     className="object-cover rounded-2xl"
@@ -63,8 +62,8 @@ export function AiChatBotSection() {
 
                 {/* Chat Input */}
                 <div className="relative mt-auto">
-                  <div className="flex items-center gap-3 bg-[#1E1E26] rounded-xl px-4 py-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full" />
+                  <div className="flex items-center gap-3 bg-neural/30 rounded-xl px-4 py-3 border border-white/5">
+                    <div className="w-2 h-2 bg-electric-cyan rounded-full animate-pulse" />
                     <input
                       type="text"
                       placeholder="Ask anything"
@@ -74,7 +73,7 @@ export function AiChatBotSection() {
                     <Button
                       size="icon"
                       variant="ghost"
-                      className="text-white/40 hover:text-white"
+                      className="text-white/40 hover:text-electric-cyan transition-colors"
                     >
                       <Mic className="w-4 h-4" />
                     </Button>
@@ -92,22 +91,55 @@ export function AiChatBotSection() {
             transition={{ duration: 0.8 }}
           >
             <div className="space-y-4">
-              <p className="text-white/60 text-sm tracking-wider">
+              <motion.p
+                className="text-electric-cyan text-sm tracking-wider uppercase"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
                 HOW IT WORKS - 02
-              </p>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white">
-                Connect with AI chat bot
-              </h2>
+              </motion.p>
+              <motion.h2
+                className="text-4xl lg:text-5xl font-bold"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <span className="relative inline-block">
+                  <span
+                    className="relative z-10 bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
+                      bg-clip-text text-transparent animate-gradient-x"
+                  >
+                    Connect with AI chat bot
+                  </span>
+                  <motion.div
+                    className="absolute -bottom-2 left-0 w-full h-2"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                  >
+                    <div
+                      className="w-full h-full bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
+                        rounded-full opacity-75 blur-sm"
+                    />
+                    <div
+                      className="absolute inset-0 w-full h-full bg-gradient-to-r from-quantum via-ai-mint
+                        to-electric-cyan rounded-full opacity-90"
+                    />
+                  </motion.div>
+                </span>
+              </motion.h2>
               <p className="text-white/60">
                 Connect with the AI chatbot to start the conversation. The
                 chatbot uses natural language processing to understand your
                 queries and provide relevant responses.
               </p>
-              <Button
-                className="bg-gradient-to-r from-[#3E3E45] to-[#202024] text-white rounded-full px-6
-                  hover:opacity-90 transition-opacity border border-white/10"
-              >
-                CONNECT NOW
+              <Button variant="ai" className="group">
+                <span className="relative z-10">CONNECT NOW</span>
+                <div
+                  className="absolute inset-0 bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
+                    opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                />
               </Button>
             </div>
 
@@ -116,16 +148,16 @@ export function AiChatBotSection() {
               {steps.map((step, index) => (
                 <motion.div
                   key={step.number}
-                  className="flex gap-6 items-start"
+                  className="flex gap-6 items-start group"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <span className="text-white/30 font-mono text-sm">
+                  <span className="text-electric-cyan font-mono text-sm group-hover:text-quantum transition-colors">
                     {step.number}
                   </span>
                   <div>
-                    <h3 className="text-white font-medium mb-2">
+                    <h3 className="text-white font-medium mb-2 group-hover:text-electric-cyan transition-colors">
                       {step.title}
                     </h3>
                     <p className="text-white/40 text-sm">{step.description}</p>
