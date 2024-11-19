@@ -16,8 +16,8 @@ const features = [
     description:
       "Lets users quickly find answers to their questions without having to search through multiple sources.",
     icon: MessageSquare,
-    iconBg: "quantum",
-    iconColor: "ai-mint",
+    iconBg: "neural",
+    iconColor: "electric-cyan",
   },
   {
     title: "Improve everyday",
@@ -32,8 +32,8 @@ const features = [
     description:
       "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient.",
     icon: Globe,
-    iconBg: "quantum",
-    iconColor: "ai-mint",
+    iconBg: "neural",
+    iconColor: "electric-cyan",
   },
   {
     title: "Fast responding",
@@ -48,8 +48,8 @@ const features = [
     description:
       "Adaptive AI system that learns from interactions to provide increasingly personalized and relevant responses.",
     icon: Brain,
-    iconBg: "quantum",
-    iconColor: "ai-mint",
+    iconBg: "neural",
+    iconColor: "electric-cyan",
   },
   {
     title: "Secure Chat",
@@ -87,7 +87,7 @@ export function ServicesCarouselComponent() {
               <div className="relative z-10 p-8 h-full flex flex-col">
                 <div className="flex items-start justify-between mb-8">
                   <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center bg-${feature.iconBg}`}
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center bg-${feature.iconBg}/80`}
                   >
                     <feature.icon
                       className={`w-6 h-6 text-${feature.iconColor}`}
