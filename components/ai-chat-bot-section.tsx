@@ -32,7 +32,7 @@ const steps = [
 
 export function AiChatBotSection() {
   return (
-    <section className="w-full bg-[#0B0B0F] py-24">
+    <section className="w-full z-10 py-24">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
           {/* Left side - Chat Interface */}

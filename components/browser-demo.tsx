@@ -1,12 +1,12 @@
-'use client'
+"use client";
 
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { Home, Image as ImageIcon, Search, MessageSquare } from 'lucide-react'
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Home, Image as ImageIcon, Search, MessageSquare } from "lucide-react";
 
 export function BrowserDemo() {
   return (
-    <motion.div 
+    <motion.div
       className="max-w-[1200px] mx-auto mt-20"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
@@ -35,21 +35,22 @@ export function BrowserDemo() {
             </button>
           </div>
         </div>
-        
+
         {/* Browser Content */}
         <div className="relative h-[600px] overflow-hidden">
           <Image
-            src="/ai-robot.webp"
+            src="/robot.webp"
             alt="AI Robot"
             width={800}
             height={600}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0B0B0F]" />
-          
+
           {/* Floating Elements */}
-          <motion.div 
-            className="absolute top-8 right-8 bg-black/50 backdrop-blur-xl rounded-xl p-3 border border-white/10"
+          <motion.div
+            className="absolute top-8 right-8 bg-black/50 backdrop-blur-xl rounded-xl p-3 border
+              border-white/10"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
@@ -60,8 +61,9 @@ export function BrowserDemo() {
             </div>
           </motion.div>
 
-          <motion.div 
-            className="absolute bottom-32 left-8 bg-black/50 backdrop-blur-xl rounded-xl p-3 border border-white/10"
+          <motion.div
+            className="absolute bottom-32 left-8 bg-black/50 backdrop-blur-xl rounded-xl p-3 border
+              border-white/10"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
@@ -72,7 +74,10 @@ export function BrowserDemo() {
             </div>
           </motion.div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[480px] bg-[#1A1A1F]/80 backdrop-blur-xl rounded-xl p-4">
+          <div
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[480px] bg-[#1A1A1F]/80
+              backdrop-blur-xl rounded-xl p-4"
+          >
             <div className="flex items-center gap-3">
               <div className="w-5 h-5 rounded-full bg-gradient-to-r from-[#D97BF3] to-[#9C55F6] animate-pulse" />
               <span className="text-white text-sm">AI is generating...</span>
@@ -81,5 +86,5 @@ export function BrowserDemo() {
         </div>
       </div>
     </motion.div>
-  )
+  );
 }

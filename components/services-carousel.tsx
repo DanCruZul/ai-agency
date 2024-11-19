@@ -75,7 +75,7 @@ const features = [
 
 export function ServicesCarouselComponent() {
   return (
-    <section className="w-full bg-[#0B0B0F] py-24">
+    <section className="w-full z-10 py-24">
       <div className="container px-4 mx-auto">
         <motion.h2
           className="text-4xl md:text-5xl font-bold text-white text-center mb-20"
@@ -91,7 +91,7 @@ export function ServicesCarouselComponent() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="relative bg-[#0F0F13] rounded-3xl overflow-hidden border border-white/5"
+              className="relative rounded-3xl overflow-hidden border border-white/5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
