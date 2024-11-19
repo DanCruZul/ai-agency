@@ -6,7 +6,7 @@ import { Send } from "lucide-react";
 
 export function ContactSection() {
   return (
-    <section className="relative w-full bg-[#0A0A0F] overflow-hidden py-24">
+    <section className="relative w-full overflow-hidden py-24">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]">

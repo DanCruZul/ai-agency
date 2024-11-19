@@ -8,7 +8,7 @@ import robotImage from "../assets/robot.png";
 
 export function HeroSection() {
   return (
-    <div className="max-w-[1200px] mx-auto text-center relative">
+    <div className="max-w-[1200px] z-10 mx-auto text-center relative">
       <motion.div
         className="absolute top-1/2 right-0 transform -translate-y-1/2 -z-10"
         initial={{ opacity: 0, scale: 0.8 }}

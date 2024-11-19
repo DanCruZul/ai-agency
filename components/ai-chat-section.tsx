@@ -128,7 +128,7 @@ export function AiChatSection() {
                   className="absolute inset-0 rounded-full bg-gradient-to-r from-[#AC6AFF] via-[#5B37B7]
                     to-[#AC6AFF] opacity-50 blur-lg"
                 />
-                <div className="absolute inset-2 rounded-full bg-[#0B0B0F]" />
+                <div className="absolute inset-2 rounded-full bg-[#0B0B0F]/95 blur-lg" />
 
                 {/* Center icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
