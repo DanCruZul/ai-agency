@@ -64,7 +64,6 @@ export function AiChatSection() {
     <section className="relative w-full overflow-hidden py-24">
       <div className="max-w-[1280px] mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
-          {/* Left side content */}
           <motion.div
             className="w-full lg:w-1/2"
             initial={{ opacity: 0, x: -40 }}
@@ -72,11 +71,8 @@ export function AiChatSection() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
-              AI chat app for
-              <br />
-              seamless
-              <br />
-              <span className="gradient-text">collaboration</span>
+              AI chat app for seamless{" "}
+              <span className="gradient-word">collaboration</span>
             </h2>
             <ul className="space-y-4 mb-8">
               {features.map((feature, index) => (
@@ -103,7 +99,6 @@ export function AiChatSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right side content */}
           <div className="w-full lg:w-1/2 relative">
             <motion.p
               className="text-white/60 mb-12 text-center max-w-md mx-auto"
@@ -115,9 +110,7 @@ export function AiChatSection() {
               perfect solution for teams looking to work smarter.
             </motion.p>
 
-            {/* Circular app icons */}
             <div className="relative w-[500px] h-[500px] mx-auto">
-              {/* Center circle with gradient border */}
               <motion.div
                 className="absolute inset-0 rounded-full"
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -130,7 +123,6 @@ export function AiChatSection() {
                 />
                 <div className="absolute inset-2 rounded-full bg-background/95 blur-lg" />
 
-                {/* Center icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <motion.div
                     className="w-20 h-20 rounded-full bg-gradient-to-r from-ai-mint via-electric-cyan
@@ -177,7 +169,6 @@ export function AiChatSection() {
                 </div>
               </motion.div>
 
-              {/* App icons */}
               {appIcons.map((app) => (
                 <motion.div
                   key={app.name}

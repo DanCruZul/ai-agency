@@ -49,7 +49,6 @@ function TestimonialCard({ author, role, content, logoUrl }: any) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Gradient Background */}
       <div
         className={`absolute inset-0 bg-gradient-to-br from-quantum/10 via-ai-mint/10
           to-electric-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity
@@ -57,7 +56,6 @@ function TestimonialCard({ author, role, content, logoUrl }: any) {
       />
 
       <div className="relative z-10 h-full flex flex-col">
-        {/* Profile Section */}
         <div className="flex items-center gap-3">
           <div
             className="w-12 h-12 rounded-xl bg-gradient-to-br from-quantum via-ai-mint to-electric-cyan
@@ -78,10 +76,8 @@ function TestimonialCard({ author, role, content, logoUrl }: any) {
           </div>
         </div>
 
-        {/* Content */}
         <p className="mt-6 text-white/80 leading-relaxed">{content}</p>
 
-        {/* Action Button */}
         <button
           className="mt-auto px-4 py-2 text-sm text-white/80 border border-white/10 rounded-lg
             group-hover:border-electric-cyan/50 group-hover:text-white transition-all
@@ -107,7 +103,6 @@ export function TestimonialSection() {
   return (
     <section className="relative w-full py-24">
       <div className="max-w-[1200px] mx-auto px-6">
-        {/* Header */}
         <div className="text-center mb-16">
           <motion.span
             className="inline-block text-electric-cyan text-sm tracking-wider uppercase mb-4"
@@ -123,33 +118,10 @@ export function TestimonialSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <span className="relative inline-block">
-              <span
-                className="relative z-10 bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
-                  bg-clip-text text-transparent animate-gradient-x"
-              >
-                What our users are saying
-              </span>
-              <motion.div
-                className="absolute -bottom-2 left-0 w-full h-2"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <div
-                  className="w-full h-full bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
-                    rounded-full opacity-75 blur-sm"
-                />
-                <div
-                  className="absolute inset-0 w-full h-full bg-gradient-to-r from-quantum via-ai-mint
-                    to-electric-cyan rounded-full opacity-90"
-                />
-              </motion.div>
-            </span>
+            What our <span className="gradient-word">users</span> are saying
           </motion.h2>
         </div>
 
-        {/* Carousel */}
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-6 ml-[-1rem]">
@@ -161,7 +133,6 @@ export function TestimonialSection() {
             </div>
           </div>
 
-          {/* Navigation Buttons */}
           <div
             className="absolute top-1/2 left-0 right-0 -translate-y-1/2 flex justify-between px-4
               pointer-events-none"

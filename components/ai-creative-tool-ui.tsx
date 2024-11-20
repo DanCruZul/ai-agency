@@ -2,9 +2,9 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Mic, Volume2, Play, ImageIcon, Maximize2 } from "lucide-react";
+import Image from "next/image";
 import { Button } from "./ui/button";
 
-// Design System
 const designSystem = {
   colors: {
     primary: {
@@ -109,7 +109,7 @@ export function AiCreativeToolUi() {
           animate={{ opacity: 1, y: 0 }}
           transition={designSystem.animations.transition}
         >
-          <h1 className="text-4xl md:text-5xl font-medium text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-medium mb-4">
             Generative{" "}
             <span
               className="bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan bg-clip-text
@@ -117,8 +117,8 @@ export function AiCreativeToolUi() {
             >
               AI
             </span>{" "}
-            made for creators.
-          </h1>
+            made for creators
+          </h2>
           <p className={designSystem.colors.text.secondary}>
             Brainwave unlocks the potential of AI-powered applications
           </p>
@@ -139,35 +139,28 @@ export function AiCreativeToolUi() {
               }}
             >
               <motion.div
-                className={`relative h-[400px] rounded-3xl overflow-hidden p-8 bg-[#0B0B0F] border
-                border-white/5 shadow-[0_4px_20px_rgba(32,227,178,0.1)] backdrop-blur-sm
-                hover:border-electric-cyan/30 transition-all duration-500`}
+                className="relative h-[400px] rounded-3xl overflow-hidden p-8 bg-[#0B0B0F] border
+                  border-white/5 shadow-[0_4px_20px_rgba(32,227,178,0.1)] backdrop-blur-sm
+                  hover:border-electric-cyan/30 transition-all duration-500"
                 whileHover={designSystem.animations.hover}
                 whileTap={designSystem.animations.tap}
               >
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-90
-                  transition-opacity duration-500`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 0.9 }}
-                  transition={designSystem.animations.transition}
+                {/* Background Image */}
+                <Image
+                  src={index === 0 ? "/assets/box 1.png" : "/assets/box 3.png"}
+                  alt={feature.title}
+                  fill
+                  className="object-cover opacity-50"
                 />
+
                 <div className="relative z-10 h-full flex flex-col">
-                  <motion.div
-                    className="flex-1"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      ...designSystem.animations.transition,
-                      delay: 0.2,
-                    }}
-                  >
-                    <h2
+                  <div className="flex-1">
+                    <h3
                       className="text-2xl font-medium bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
                         bg-clip-text text-transparent mb-4"
                     >
                       {feature.title}
-                    </h2>
+                    </h3>
                     <p className="text-white/70 mb-8">{feature.description}</p>
                     {feature.features && (
                       <div className="space-y-4">
@@ -188,18 +181,10 @@ export function AiCreativeToolUi() {
                         ))}
                       </div>
                     )}
-                  </motion.div>
+                  </div>
 
                   {feature.controls ? (
-                    <motion.div
-                      className="flex justify-between mt-auto"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        ...designSystem.animations.transition,
-                        delay: 0.4,
-                      }}
-                    >
+                    <div className="flex justify-between mt-auto">
                       {feature.controls.map((Icon, i) => (
                         <motion.button
                           key={i}
@@ -212,17 +197,9 @@ export function AiCreativeToolUi() {
                           <Icon className="w-5 h-5 text-electric-cyan" />
                         </motion.button>
                       ))}
-                    </motion.div>
+                    </div>
                   ) : (
-                    <motion.div
-                      className="mt-auto"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        ...designSystem.animations.transition,
-                        delay: 0.4,
-                      }}
-                    >
+                    <div className="mt-auto">
                       <div className="bg-black/50 backdrop-blur-sm rounded-xl p-3 border border-white/5">
                         <p className="text-white/70 font-mono">
                           {index === 0
@@ -230,7 +207,7 @@ export function AiCreativeToolUi() {
                             : "Hey Brainwave, enhance this content"}
                         </p>
                       </div>
-                    </motion.div>
+                    </div>
                   )}
                 </div>
               </motion.div>

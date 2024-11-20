@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "./ui/button";
 
 export function NavBar() {
@@ -9,16 +8,10 @@ export function NavBar() {
     <nav className="fixed top-0 z-50 w-full px-6 h-[84px] backdrop-blur-md border-b border-white/5">
       <div className="flex items-center justify-between h-full max-w-[1440px] mx-auto">
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-8 h-8">
-            <Image
-              src="/brainwave-icon.svg"
-              alt="Brainwave"
-              width={32}
-              height={32}
-              className="w-full h-full"
-            />
-          </div>
-          <span className="text-white text-xl font-medium gradient-text">
+          <span
+            className="text-2xl font-medium bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
+              bg-clip-text text-transparent"
+          >
             Brainwave
           </span>
         </Link>

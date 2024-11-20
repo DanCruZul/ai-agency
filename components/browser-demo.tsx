@@ -39,7 +39,7 @@ export function BrowserDemo() {
         {/* Browser Content */}
         <div className="relative h-[600px] overflow-hidden">
           <Image
-            src="/robot.webp"
+            src="/assets/robot.png"
             alt="AI Robot"
             width={800}
             height={600}

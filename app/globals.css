@@ -25,7 +25,21 @@ body {
   cursor: none;
 }
 
-/* Neural Network Background */
+/* Title Design System */
+h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.gradient-word {
+  background: linear-gradient(to right, #7b2cbf, #20e3b2);
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Rest of your existing CSS remains unchanged */
 .neural-bg {
   position: fixed;
   inset: 0;
@@ -37,7 +51,6 @@ body {
   );
 }
 
-/* AI Button */
 .ai-button {
   position: relative;
   background: linear-gradient(45deg, #7b2cbf 0%, #2ec4b6 50%, #20e3b2 100%);
@@ -62,7 +75,6 @@ body {
   background: transparent;
 }
 
-/* Holographic Card */
 .holo-card {
   background: linear-gradient(
     180deg,
@@ -83,7 +95,6 @@ body {
   border-color: rgba(32, 227, 178, 0.3);
 }
 
-/* Scroll Animations */
 .scroll-fade-up {
   opacity: 0;
   transform: translateY(20px);
@@ -95,7 +106,6 @@ body {
   transform: translateY(0);
 }
 
-/* Gradient Text */
 .gradient-text {
   background: linear-gradient(45deg, #7b2cbf, #2ec4b6, #20e3b2);
   -webkit-background-clip: text;
@@ -110,7 +120,6 @@ body {
   }
 }
 
-/* Gradient Animation */
 .animate-gradient-x {
   background-size: 200% 100%;
   animation: gradient-x 15s linear infinite;
@@ -128,7 +137,6 @@ body {
   }
 }
 
-/* Modern Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }

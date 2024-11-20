@@ -34,7 +34,6 @@ export function AiChatBotSection() {
     <section className="w-full z-10 py-24">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
-          {/* Left side - Chat Interface */}
           <motion.div
             className="w-full lg:w-1/2"
             initial={{ opacity: 0, x: -40 }}
@@ -42,13 +41,11 @@ export function AiChatBotSection() {
             transition={{ duration: 0.8 }}
           >
             <div className="relative max-w-[550px] mx-auto">
-              {/* Background Glow Effect */}
               <div
                 className="absolute inset-0 bg-gradient-to-br from-quantum/20 via-ai-mint/20
                   to-electric-cyan/20 rounded-[32px] blur-xl"
               />
               <div className="relative bg-neural/5 rounded-[32px] p-8 border border-white/10 backdrop-blur-xl">
-                {/* Image Section */}
                 <div className="relative w-full aspect-square mb-8">
                   <Image
                     src="/connect section.png"
@@ -60,7 +57,6 @@ export function AiChatBotSection() {
                   />
                 </div>
 
-                {/* Chat Input */}
                 <div className="relative mt-auto">
                   <div className="flex items-center gap-3 bg-neural/30 rounded-xl px-4 py-3 border border-white/5">
                     <div className="w-2 h-2 bg-electric-cyan rounded-full animate-pulse" />
@@ -83,7 +79,6 @@ export function AiChatBotSection() {
             </div>
           </motion.div>
 
-          {/* Right side - Content */}
           <motion.div
             className="w-full lg:w-1/2 space-y-8"
             initial={{ opacity: 0, x: 40 }}
@@ -105,29 +100,7 @@ export function AiChatBotSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <span className="relative inline-block">
-                  <span
-                    className="relative z-10 bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
-                      bg-clip-text text-transparent animate-gradient-x"
-                  >
-                    Connect with AI chat bot
-                  </span>
-                  <motion.div
-                    className="absolute -bottom-2 left-0 w-full h-2"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                  >
-                    <div
-                      className="w-full h-full bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
-                        rounded-full opacity-75 blur-sm"
-                    />
-                    <div
-                      className="absolute inset-0 w-full h-full bg-gradient-to-r from-quantum via-ai-mint
-                        to-electric-cyan rounded-full opacity-90"
-                    />
-                  </motion.div>
-                </span>
+                Connect with AI <span className="gradient-word">chat bot</span>
               </motion.h2>
               <p className="text-white/60">
                 Connect with the AI chatbot to start the conversation. The
@@ -143,7 +116,6 @@ export function AiChatBotSection() {
               </Button>
             </div>
 
-            {/* Steps */}
             <div className="grid grid-cols-1 gap-6 mt-12">
               {steps.map((step, index) => (
                 <motion.div

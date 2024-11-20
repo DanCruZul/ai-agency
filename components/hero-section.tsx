@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 
 export function HeroSection() {
   return (
-    <div className="max-w-[1200px] mx-auto text-center relative">
+    <div className="max-w-[1200px] md:mt-10 mx-auto text-center relative">
       {/* Gradient Background */}
       <div
         className="absolute inset-0
@@ -22,7 +22,7 @@ export function HeroSection() {
         className="relative z-10"
       >
         <motion.h1
-          className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight"
+          className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
