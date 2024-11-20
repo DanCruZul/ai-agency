@@ -5,49 +5,6 @@ import { Mic, Volume2, Play, ImageIcon, Maximize2 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./ui/button";
 
-const designSystem = {
-  colors: {
-    primary: {
-      gradient: "from-[#1A1A1F] via-[#0F0F13] to-[#0B0B0F]",
-      accent: "from-quantum via-ai-mint to-electric-cyan",
-    },
-    text: {
-      primary: "text-white",
-      secondary: "text-white/70",
-      accent: "text-electric-cyan",
-    },
-    background: {
-      card: "bg-[#0B0B0F]",
-      overlay: "bg-black/50",
-    },
-    border: {
-      default: "border-white/5",
-      hover: "border-electric-cyan/30",
-    },
-  },
-  animations: {
-    transition: {
-      duration: 0.6,
-      ease: [0.43, 0.13, 0.23, 0.96],
-    },
-    hover: {
-      scale: 1.02,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut",
-      },
-    },
-    tap: {
-      scale: 0.98,
-    },
-  },
-  shadows: {
-    sm: "shadow-[0_2px_10px_rgba(32,227,178,0.07)]",
-    md: "shadow-[0_4px_20px_rgba(32,227,178,0.1)]",
-    lg: "shadow-[0_8px_30px_rgba(32,227,178,0.15)]",
-  },
-};
-
 const features = [
   {
     title: "Smartest AI",
@@ -86,7 +43,7 @@ export function AiCreativeToolUi() {
         style={{ opacity }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={designSystem.animations.transition}
+        transition={{ duration: 0.6 }}
       >
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]
@@ -100,14 +57,14 @@ export function AiCreativeToolUi() {
         style={{ scale }}
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={designSystem.animations.transition}
+        transition={{ duration: 0.6 }}
       >
         {/* Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={designSystem.animations.transition}
+          transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-medium mb-4">
             Generative{" "}
@@ -119,7 +76,7 @@ export function AiCreativeToolUi() {
             </span>{" "}
             made for creators
           </h2>
-          <p className={designSystem.colors.text.secondary}>
+          <p className="text-white/60">
             Brainwave unlocks the potential of AI-powered applications
           </p>
         </motion.div>
@@ -133,18 +90,9 @@ export function AiCreativeToolUi() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{
-                ...designSystem.animations.transition,
-                delay: index * 0.2,
-              }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <motion.div
-                className="relative h-[400px] rounded-3xl overflow-hidden p-8 bg-[#0B0B0F] border
-                  border-white/5 shadow-[0_4px_20px_rgba(32,227,178,0.1)] backdrop-blur-sm
-                  hover:border-electric-cyan/30 transition-all duration-500"
-                whileHover={designSystem.animations.hover}
-                whileTap={designSystem.animations.tap}
-              >
+              <div className="holo-card h-[400px] p-8">
                 {/* Background Image */}
                 <Image
                   src={index === 0 ? "/assets/box 1.png" : "/assets/box 3.png"}
@@ -170,10 +118,7 @@ export function AiCreativeToolUi() {
                             className="flex items-center gap-3"
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{
-                              ...designSystem.animations.transition,
-                              delay: i * 0.1,
-                            }}
+                            transition={{ duration: 0.6, delay: i * 0.1 }}
                           >
                             <div className="w-2 h-2 rounded-full bg-electric-cyan" />
                             <span className="text-white/70">{item}</span>
@@ -186,16 +131,14 @@ export function AiCreativeToolUi() {
                   {feature.controls ? (
                     <div className="flex justify-between mt-auto">
                       {feature.controls.map((Icon, i) => (
-                        <motion.button
+                        <Button
                           key={i}
-                          className="w-10 h-10 rounded-xl bg-gradient-to-br from-quantum/10 to-electric-cyan/10
-                            backdrop-blur-sm border border-white/5 flex items-center justify-center
-                            hover:border-electric-cyan/30 transition-all duration-300"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
+                          variant="ai"
+                          size="icon"
+                          className="hover:border-electric-cyan/30"
                         >
                           <Icon className="w-5 h-5 text-electric-cyan" />
-                        </motion.button>
+                        </Button>
                       ))}
                     </div>
                   ) : (
@@ -210,7 +153,7 @@ export function AiCreativeToolUi() {
                     </div>
                   )}
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </div>

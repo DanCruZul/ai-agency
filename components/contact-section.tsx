@@ -18,9 +18,8 @@ export function ContactSection() {
             transition={{ duration: 1 }}
           >
             <div
-              className="absolute inset-0 rounded-full
-                bg-[radial-gradient(ellipse_at_center,rgba(123,44,191,0.15)_0%,rgba(32,227,178,0.15)_100%)]
-                blur-3xl"
+              className="absolute inset-0 rounded-full bg-[radial-gradient(ellipse_at_center,
+                rgba(123,44,191,0.15)_0%,rgba(32,227,178,0.15)_100%)] blur-3xl"
             />
           </motion.div>
 
@@ -57,28 +56,11 @@ export function ContactSection() {
             transition={{ duration: 0.6 }}
           >
             Be part of the future of{" "}
-            <span className="relative inline-block">
-              <span
-                className="relative z-10 bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
-                  bg-clip-text text-transparent animate-gradient-x"
-              >
-                Brainwave
-              </span>
-              <motion.div
-                className="absolute -bottom-2 left-0 w-full h-2"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <div
-                  className="w-full h-full bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
-                    rounded-full opacity-75 blur-sm"
-                />
-                <div
-                  className="absolute inset-0 w-full h-full bg-gradient-to-r from-quantum via-ai-mint
-                    to-electric-cyan rounded-full opacity-90"
-                />
-              </motion.div>
+            <span
+              className="bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan bg-clip-text
+                text-transparent"
+            >
+              Brainwave
             </span>
           </motion.h2>
           <motion.p
@@ -99,65 +81,76 @@ export function ContactSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="bg-neural/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
-            <form className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-white/70 mb-2"
+          <div className="relative">
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
+                rounded-2xl opacity-10 blur-xl"
+            />
+            <div className="relative bg-neural/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
+              <form className="space-y-6">
+                <div className="space-y-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-white/70"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full bg-neural/5 border border-white/10 rounded-lg px-4 py-3 text-white
+                      placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-electric-cyan/50
+                      focus:border-electric-cyan/50 transition-all duration-300"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-white/70"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full bg-neural/5 border border-white/10 rounded-lg px-4 py-3 text-white
+                      placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-electric-cyan/50
+                      focus:border-electric-cyan/50 transition-all duration-300"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-white/70"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={4}
+                    className="w-full bg-neural/5 border border-white/10 rounded-lg px-4 py-3 text-white
+                      placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-electric-cyan/50
+                      focus:border-electric-cyan/50 transition-all duration-300 resize-none"
+                    placeholder="Enter your message"
+                  />
+                </div>
+                <Button
+                  variant="ai"
+                  className="w-full group relative overflow-hidden"
                 >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full bg-neural/5 border border-white/10 rounded-lg px-4 py-3 text-white
-                    placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-quantum/50
-                    transition-all"
-                  placeholder="Enter your name"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-white/70 mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full bg-neural/5 border border-white/10 rounded-lg px-4 py-3 text-white
-                    placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-quantum/50
-                    transition-all"
-                  placeholder="Enter your email"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-white/70 mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="w-full bg-neural/5 border border-white/10 rounded-lg px-4 py-3 text-white
-                    placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-quantum/50
-                    transition-all resize-none"
-                  placeholder="Enter your message"
-                />
-              </div>
-              <Button variant="ai" className="w-full group">
-                <span className="relative z-10">Send Message</span>
-                <Send className="w-4 h-4 ml-2 relative z-10" />
-                <div
-                  className="absolute inset-0 bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
-                    opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                />
-              </Button>
-            </form>
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    Send Message
+                    <Send className="w-4 h-4" />
+                  </span>
+                  <div
+                    className="absolute inset-0 bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan
+                      opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                </Button>
+              </form>
+            </div>
           </div>
         </motion.div>
       </div>
