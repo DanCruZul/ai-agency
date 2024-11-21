@@ -113,12 +113,19 @@ export function TestimonialSection() {
             Testimonials
           </motion.span>
           <motion.h2
-            className="text-4xl font-bold"
+            className="text-3xl sm:text-4xl lg:text-5xl font-medium"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            What our <span className="gradient-word">users</span> are saying
+            What our{" "}
+            <span
+              className="bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan bg-clip-text
+                text-transparent"
+            >
+              users
+            </span>{" "}
+            are saying
           </motion.h2>
         </div>
 

@@ -66,13 +66,18 @@ export function ServicesCarouselComponent() {
     <section className="w-full z-10 py-24">
       <div className="container px-4 mx-auto">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-white text-center mb-20"
+          className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white text-center mb-20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Chat Smarter, Not Harder with{" "}
-          <span className="gradient-word">Brainwave</span>
+          Chat Smarter with{" "}
+          <span
+            className="bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan bg-clip-text
+              text-transparent"
+          >
+            Brainwave AI
+          </span>
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (

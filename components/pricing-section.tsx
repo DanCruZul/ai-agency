@@ -55,12 +55,18 @@ export function PricingSectionComponent() {
             Pricing Plans
           </motion.p>
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl font-medium mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Choose your <span className="gradient-word">perfect</span> plan
+            Choose your{" "}
+            <span
+              className="bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan bg-clip-text
+                text-transparent"
+            >
+              perfect plan
+            </span>
           </motion.h2>
         </div>
 
@@ -69,12 +75,17 @@ export function PricingSectionComponent() {
             <motion.div
               key={plan.name}
               className={`relative p-8 rounded-2xl border border-white/10 backdrop-blur-xl
-              hover:border-electric-cyan/50 transition-all duration-300 group
+              hover:border-electric-cyan/50 transition-all duration-300 group overflow-hidden
               ${plan.featured ? "bg-neural/10" : "bg-neural/5"}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
+              <div
+                className="absolute inset-0 bg-gradient-to-br from-quantum/10 via-ai-mint/10
+                  to-electric-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity
+                  duration-500 -z-10"
+              />
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-2">
@@ -84,7 +95,12 @@ export function PricingSectionComponent() {
                 </div>
 
                 <div className="text-5xl font-bold">
-                  <span className="gradient-word">{plan.price}</span>
+                  <span
+                    className="bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan bg-clip-text
+                      text-transparent"
+                  >
+                    {plan.price}
+                  </span>
                 </div>
 
                 <ul className="space-y-4 mb-8">
@@ -109,11 +125,6 @@ export function PricingSectionComponent() {
                   />
                 </Button>
               </div>
-
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${plan.gradient} opacity-0
-                group-hover:opacity-100 transition-opacity duration-500 rounded-2xl -z-10`}
-              />
             </motion.div>
           ))}
         </div>

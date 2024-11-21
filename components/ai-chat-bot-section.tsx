@@ -95,12 +95,18 @@ export function AiChatBotSection() {
                 HOW IT WORKS - 02
               </motion.p>
               <motion.h2
-                className="text-4xl lg:text-5xl font-bold"
+                className="text-4xl md:text-5xl font-medium"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                Connect with AI <span className="gradient-word">chat bot</span>
+                Connect with{" "}
+                <span
+                  className="bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan bg-clip-text
+                    text-transparent"
+                >
+                  AI chat bot
+                </span>
               </motion.h2>
               <p className="text-white/60">
                 Connect with the AI chatbot to start the conversation. The

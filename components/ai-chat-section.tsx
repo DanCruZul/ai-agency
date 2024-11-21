@@ -5,59 +5,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 
-const appIcons = [
-  { name: "Figma", src: "/figma-icon.svg", position: "top", delay: 0.2 },
-  {
-    name: "Notion",
-    src: "/notion-icon.svg",
-    position: "top-right",
-    delay: 0.3,
-  },
-  { name: "Discord", src: "/discord-icon.svg", position: "right", delay: 0.4 },
-  { name: "Jira", src: "/jira-icon.svg", position: "bottom-right", delay: 0.5 },
-  {
-    name: "Photoshop",
-    src: "/photoshop-icon.svg",
-    position: "bottom",
-    delay: 0.6,
-  },
-  {
-    name: "Invision",
-    src: "/invision-icon.svg",
-    position: "bottom-left",
-    delay: 0.7,
-  },
-  { name: "Teams", src: "/teams-icon.svg", position: "left", delay: 0.8 },
-  {
-    name: "Dropbox",
-    src: "/dropbox-icon.svg",
-    position: "top-left",
-    delay: 0.9,
-  },
-] as const;
-
 const features = [
   "Seamless Integration",
   "Smart Automation",
   "Top-notch Security",
 ];
-
-type IconPosition = (typeof appIcons)[number]["position"];
-
-const positions: Record<IconPosition, string> = {
-  top: "top-0 left-1/2 -translate-x-1/2",
-  "top-right": "top-[15%] right-[15%]",
-  right: "top-1/2 right-0 -translate-y-1/2",
-  "bottom-right": "bottom-[15%] right-[15%]",
-  bottom: "bottom-0 left-1/2 -translate-x-1/2",
-  "bottom-left": "bottom-[15%] left-[15%]",
-  left: "top-1/2 left-0 -translate-y-1/2",
-  "top-left": "top-[15%] left-[15%]",
-};
-
-const getIconPosition = (position: IconPosition): string => {
-  return positions[position];
-};
 
 export function AiChatSection() {
   return (
@@ -70,9 +22,14 @@ export function AiChatSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
-              AI chat app for seamless{" "}
-              <span className="gradient-word">collaboration</span>
+            <h2 className="text-4xl md:text-5xl font-medium text-white mb-8">
+              AI chat app for{" "}
+              <span
+                className="bg-gradient-to-r from-quantum via-ai-mint to-electric-cyan bg-clip-text
+                  text-transparent"
+              >
+                seamless collaboration
+              </span>
             </h2>
             <ul className="space-y-4 mb-8">
               {features.map((feature, index) => (
@@ -168,26 +125,6 @@ export function AiChatSection() {
                   </motion.div>
                 </div>
               </motion.div>
-
-              {appIcons.map((app) => (
-                <motion.div
-                  key={app.name}
-                  className={`absolute w-12 h-12 ${getIconPosition(app.position)}`}
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: app.delay }}
-                >
-                  <div className="holo-card w-full h-full p-2">
-                    <Image
-                      src={app.src}
-                      alt={app.name}
-                      width={32}
-                      height={32}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                </motion.div>
-              ))}
             </div>
           </div>
         </div>
