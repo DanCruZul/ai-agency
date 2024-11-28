@@ -8,8 +8,10 @@ import { AiChatBotSection } from "@/components/ai-chat-bot-section";
 import { AiCreativeToolUi } from "@/components/ai-creative-tool-ui";
 import { PricingSectionComponent } from "@/components/pricing-section";
 import { TestimonialSection } from "@/components/testimonial-section";
+import { FaqSection } from "@/components/faq-section";
 import { ContactSection } from "@/components/contact-section";
 import { BackgroundElements } from "@/components/background-elements";
+import { Footer } from "@/components/footer-section";
 
 export default function HomePage() {
   return (
@@ -23,7 +25,9 @@ export default function HomePage() {
         <AiCreativeToolUi />
         <PricingSectionComponent />
         <TestimonialSection />
+        <FaqSection />
         <ContactSection />
+        <Footer />
       </main>
     </div>
   );

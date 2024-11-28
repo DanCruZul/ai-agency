@@ -1,9 +1,9 @@
 "use client";
 
 import { Check } from "lucide-react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
+import { ParticleCanvas } from "./particle-canvas";
 
 const features = [
   "Seamless Integration",
@@ -67,64 +67,14 @@ export function AiChatSection() {
               perfect solution for teams looking to work smarter.
             </motion.p>
 
-            <div className="relative w-[500px] h-[500px] mx-auto">
-              <motion.div
-                className="absolute inset-0 rounded-full"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.8 }}
-              >
-                <div
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-quantum via-neural
-                    to-quantum opacity-50 blur-lg"
-                />
-                <div className="absolute inset-2 rounded-full bg-background/95 blur-lg" />
-
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.div
-                    className="w-20 h-20 rounded-full bg-gradient-to-r from-ai-mint via-electric-cyan
-                      to-quantum p-[1px]"
-                    animate={{ rotate: 360 }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                  >
-                    <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                      <svg
-                        width="32"
-                        height="32"
-                        viewBox="0 0 32 32"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M16 2L21 7M16 2L11 7M16 2V22M21 7H26L23 10M21 7L16 12M11 7H6L9 10M11 7L16 12M23 10L28 15L23 20M23 10L16 12M9 10L4 15L9 20M9 10L16 12M23 20L21 25H16M23 20L16 22M9 20L11 25H16M9 20L16 22"
-                          stroke="url(#paint0_linear)"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <defs>
-                          <linearGradient
-                            id="paint0_linear"
-                            x1="4"
-                            y1="2"
-                            x2="28"
-                            y2="25"
-                            gradientUnits="userSpaceOnUse"
-                          >
-                            <stop stopColor="#2EC4B6" />
-                            <stop offset="0.5" stopColor="#20E3B2" />
-                            <stop offset="1" stopColor="#7B2CBF" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                    </div>
-                  </motion.div>
-                </div>
-              </motion.div>
+            <div className="relative w-full aspect-square flex items-center justify-center">
+              <div
+                className="absolute inset-0 bg-gradient-to-br from-quantum/10 via-ai-mint/10
+                  to-electric-cyan/10 rounded-lg opacity-30 blur-xl"
+              />
+              <div className="relative w-full h-full">
+                <ParticleCanvas />
+              </div>
             </div>
           </div>
         </div>
