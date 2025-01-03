@@ -1,13 +1,12 @@
-"use client"; // Mark this component as a Client Component
+"use client";
 
 import { useState } from "react";
 import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
 import { navbarDefaults } from "./defaults";
-import { scrollToSection } from "@/app/utils/scroll";
 import { Logo } from "../ui/Logo";
-import { useRouter } from "next/navigation"; // Replace react-router-dom with next/navigation
-import Link from "next/link"; // Replace react-router-dom's Link with next/link
+import { useNavigation } from "./hooks/UseNavigation";
+import Link from "next/link";
 import type { NavbarComponentProps } from "./types";
 
 export const Navbar = (props: NavbarComponentProps) => {
@@ -17,29 +16,9 @@ export const Navbar = (props: NavbarComponentProps) => {
   };
 
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter(); // Replace useNavigate with useRouter
-
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    e.preventDefault();
-    scrollToSection(href); // Scroll to the section
-    setIsOpen(false); // Close the mobile menu
-  };
-
-  const handleCtaClick = () => {
-    router.push("/"); // Navigate to the home page
-    setTimeout(() => {
-      scrollToSection("cta"); // Scroll to the CTA section after navigation
-    }, 100); // Add a small delay to ensure the page has loaded
-    setIsOpen(false); // Close the mobile menu
-  };
-
-  const handleLogoClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    router.push("/"); // Navigate to the home page
-  };
+  const { handleNavClick, handleCtaClick, handleLogoClick } = useNavigation(
+    () => setIsOpen(false)
+  );
 
   return (
     <nav
@@ -49,7 +28,7 @@ export const Navbar = (props: NavbarComponentProps) => {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center">
           <Link
-            href="/" // Use href for the link destination
+            href="/"
             onClick={handleLogoClick}
             className="flex items-center space-x-2"
           >
