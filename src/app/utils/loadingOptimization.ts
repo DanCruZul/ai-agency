@@ -1,10 +1,7 @@
 export const preloadCriticalImages = async () => {
   const criticalImages = [
     "https://cdn.prod.website-files.com/5db1c0d5ca3871e8fd1a7b66/5f63b11306f1836426846360_0*6_IW_DdVcs4J1dmx.png",
-    "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/google.svg",
-    "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/microsoft.svg",
-    "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/amazon.svg",
-    "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/meta.svg",
+    // Remove SVG icons since they don't need preloading and can cause errors
   ];
 
   try {
@@ -24,7 +21,8 @@ export const preloadCriticalImages = async () => {
       })
     );
   } catch (error) {
-    console.error("Error preloading images:", error);
+    // Silently handle preloading errors since they're not critical
+    console.debug("Some images failed to preload");
   }
 };
 
