@@ -3,6 +3,8 @@ import "./globals.css";
 import { GrainEffect } from "@/app/components/ui/GrainEffect";
 import { Navbar } from "@/app/components/navbar/Navbar";
 import { Footer } from "@/app/components/footer/Footer";
+import { LoadingProvider } from "@/app/components/LoadingProvider";
+import { InitialLoader } from "@/app/components/InitialLoader";
 import { preloadCriticalImages } from "./utils/loadingOptimization";
 
 export const metadata: Metadata = {
@@ -47,14 +49,17 @@ export default function RootLayout({
         ))}
       </head>
       <body>
-        <div className="min-h-screen text-foreground">
-          <GrainEffect />
-          <div className="relative">
-            <Navbar />
-            {children}
-            <Footer />
+        <LoadingProvider>
+          <InitialLoader />
+          <div className="min-h-screen text-foreground">
+            <GrainEffect />
+            <div className="relative">
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
           </div>
-        </div>
+        </LoadingProvider>
         <script
           dangerouslySetInnerHTML={{
             __html: `(${preloadCriticalImages.toString()})();`,

@@ -13,7 +13,19 @@ export const preloadCriticalImages = async () => {
     "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/meta.svg"
   ];
 
-  return Promise.all(criticalImages.map(preloadImage));
+  try {
+    // Start preloading all critical images in parallel
+    await Promise.all(criticalImages.map(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      document.head.appendChild(link);
+      return preloadImage(src);
+    }));
+  } catch (error) {
+    console.error('Error preloading images:', error);
+  }
 };
 
 // Intersection Observer options for lazy loading

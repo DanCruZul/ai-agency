@@ -48,7 +48,7 @@ export const LazyImage = ({
       />
       <img
         ref={imgRef}
-        src={isInView ? src : ''}
+        src={isInView ? src : undefined}
         alt={alt}
         className={cn(className, 'transition-opacity duration-300', 
           isLoaded ? 'opacity-100' : 'opacity-0'
