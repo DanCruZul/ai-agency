@@ -10,29 +10,29 @@ import { preloadCriticalImages } from "./utils/loadingOptimization";
 export const metadata: Metadata = {
   title: "AI Platform",
   description: "Enterprise AI automation platform",
-  metadataBase: new URL('https://example.com'),
+  metadataBase: new URL("https://example.com"),
   openGraph: {
-    title: 'AI Platform',
-    description: 'Enterprise AI automation platform',
-    type: 'website',
+    title: "AI Platform",
+    description: "Enterprise AI automation platform",
+    type: "website",
   },
 };
 
 // Preload critical fonts
 const preloadFonts = [
   {
-    rel: 'preload',
-    href: '/fonts/General Sans/GeneralSans-Medium.otf',
-    as: 'font',
-    type: 'font/otf',
-    crossOrigin: 'anonymous',
+    rel: "preload",
+    href: "/fonts/General Sans/GeneralSans-Medium.otf",
+    as: "font",
+    type: "font/otf",
+    crossOrigin: "anonymous",
   },
   {
-    rel: 'preload',
-    href: '/fonts/Quicksand/Quicksand-Medium.otf',
-    as: 'font',
-    type: 'font/otf',
-    crossOrigin: 'anonymous',
+    rel: "preload",
+    href: "/fonts/Quicksand/Quicksand-Medium.otf",
+    as: "font",
+    type: "font/otf",
+    crossOrigin: "anonymous",
   },
 ];
 

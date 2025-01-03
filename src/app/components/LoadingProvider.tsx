@@ -18,13 +18,13 @@ export function LoadingProvider({ children }: { children: React.ReactNode }) {
       // Wait for fonts
       document.fonts.ready,
       // Wait for critical images
-      new Promise(resolve => {
-        if (document.readyState === 'complete') {
+      new Promise((resolve) => {
+        if (document.readyState === "complete") {
           resolve(true);
         } else {
-          window.addEventListener('load', () => resolve(true), { once: true });
+          window.addEventListener("load", () => resolve(true), { once: true });
         }
-      })
+      }),
     ]).then(() => {
       setIsLoading(false);
     });
