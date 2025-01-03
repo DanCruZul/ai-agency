@@ -1,6 +1,6 @@
-import { Check, X } from 'lucide-react';
-import { cn } from '@/utils/cn';
-import type { ComparisonFeature } from './types';
+import { Check, X } from "lucide-react";
+import { cn } from "@/app/utils/cn";
+import type { ComparisonFeature } from "./types";
 
 type FeaturesListProps = {
   features: ComparisonFeature[];
@@ -24,7 +24,7 @@ export const FeaturesList = ({ features }: FeaturesListProps) => (
               idx === 0 && "bg-primary/5"
             )}
           >
-            {typeof item === 'boolean' ? (
+            {typeof item === "boolean" ? (
               item ? (
                 <Check className="h-5 w-5 text-primary" />
               ) : (

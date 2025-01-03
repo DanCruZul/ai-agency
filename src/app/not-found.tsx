@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Home, ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/app/components/ui/Button";
 
 export default function NotFound() {
   return (
@@ -14,12 +14,10 @@ export default function NotFound() {
 
         {/* Content */}
         <div className="max-w-2xl space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-150">
-          <h2 className="text-3xl font-bold md:text-4xl">
-            Page not found
-          </h2>
+          <h2 className="text-3xl font-bold md:text-4xl">Page not found</h2>
           <p className="text-lg text-muted-foreground">
-            The page you're looking for doesn't exist or has been moved.
-            Let's get you back on track.
+            The page you're looking for doesn't exist or has been moved. Let's
+            get you back on track.
           </p>
 
           {/* Navigation Buttons */}
@@ -33,10 +31,7 @@ export default function NotFound() {
               Go Back
             </Button>
             <Link href="/">
-              <Button
-                variant="gradient"
-                className="gap-2"
-              >
+              <Button variant="gradient" className="gap-2">
                 <Home className="h-4 w-4" />
                 Return Home
               </Button>

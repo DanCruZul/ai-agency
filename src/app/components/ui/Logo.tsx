@@ -1,5 +1,5 @@
 import { Cpu } from "lucide-react";
-import { cn } from "@/utils/cn";
+import { cn } from "@/app/utils/cn";
 
 type LogoProps = {
   className?: string;

@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import { Plus } from 'lucide-react';
-import { cn } from '@/utils/cn';
-import { motion, AnimatePresence } from 'framer-motion';
-import type { QuestionProps } from './types';
+"use client";
+
+import { useState } from "react";
+import { Plus } from "lucide-react";
+import { cn } from "@/app/utils/cn";
+import { motion, AnimatePresence } from "framer-motion";
+import type { QuestionProps } from "./types";
 
 export const AccordionItem = ({ title, answer }: QuestionProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +16,7 @@ export const AccordionItem = ({ title, answer }: QuestionProps) => {
         className="flex w-full items-center justify-between p-6 text-left font-medium md:text-lg"
       >
         <span className="text-foreground">{title}</span>
-        <Plus 
+        <Plus
           className={cn(
             "h-5 w-5 shrink-0 text-primary transition-transform duration-300",
             isOpen && "rotate-45"

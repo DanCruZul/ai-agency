@@ -1,5 +1,7 @@
-import { motion } from 'framer-motion';
-import { cn } from '@/utils/cn';
+"use client";
+
+import { motion } from "framer-motion";
+import { cn } from "@/app/utils/cn";
 
 type AnimatedTextProps = {
   text: string;

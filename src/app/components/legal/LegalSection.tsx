@@ -1,4 +1,4 @@
-import type { LegalSectionProps } from '../types';
+import type { LegalSectionProps } from "./types";
 
 export const LegalSection = ({ title, children }: LegalSectionProps) => (
   <section className="mb-8 md:mb-12">

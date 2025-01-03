@@ -1,8 +1,8 @@
-import { Check, X } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { Button } from '../ui/Button';
-import { cn } from '@/utils/cn';
-import type { PricingTier } from './types';
+import { Check, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { Button } from "../ui/Button";
+import { cn } from "@/app/utils/cn";
+import type { PricingTier } from "./types";
 
 export const PricingCard = ({ tier }: { tier: PricingTier }) => {
   const IconRight = tier.button.iconRight;
@@ -15,7 +15,8 @@ export const PricingCard = ({ tier }: { tier: PricingTier }) => {
       transition={{ duration: 0.5 }}
       className={cn(
         "relative rounded-2xl bg-card text-card-foreground border border-border p-8 backdrop-blur-sm",
-        tier.highlight && "border-primary/50 shadow-[0_0_30px_-5px_hsl(var(--primary))]"
+        tier.highlight &&
+          "border-primary/50 shadow-[0_0_30px_-5px_hsl(var(--primary))]"
       )}
     >
       {tier.badge && (
@@ -31,7 +32,8 @@ export const PricingCard = ({ tier }: { tier: PricingTier }) => {
         <p className="mt-2 text-muted-foreground">{tier.description}</p>
         <div className="mt-6">
           <span className="text-5xl font-bold">
-            {tier.price.currency}{tier.price.amount}
+            {tier.price.currency}
+            {tier.price.amount}
           </span>
           <span className="text-muted-foreground">/{tier.price.period}</span>
         </div>
@@ -52,7 +54,9 @@ export const PricingCard = ({ tier }: { tier: PricingTier }) => {
             <div>
               <p className="text-foreground">{feature.title}</p>
               {feature.description && (
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
+                <p className="text-sm text-muted-foreground">
+                  {feature.description}
+                </p>
               )}
             </div>
           </div>
@@ -60,7 +64,7 @@ export const PricingCard = ({ tier }: { tier: PricingTier }) => {
       </div>
 
       <div className="mt-8">
-        <Button 
+        <Button
           className="w-full"
           {...tier.button}
           variant={tier.highlight ? "gradient" : tier.button.variant}

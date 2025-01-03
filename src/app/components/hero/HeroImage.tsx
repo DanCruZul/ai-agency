@@ -1,6 +1,8 @@
-import { motion } from 'framer-motion';
-import { useScrollAnimation } from './animations/useScrollAnimation';
-import type { ImageProps } from './types';
+"use client"; // Mark this as a Client Component
+
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "./animations/useScrollAnimation";
+import type { ImageProps } from "./types";
 
 export const HeroImage = ({ src, alt }: ImageProps) => {
   const imageRef = useScrollAnimation(true); // Pass true to preserve opacity

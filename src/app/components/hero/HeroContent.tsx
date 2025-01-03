@@ -1,20 +1,26 @@
-import { motion } from 'framer-motion';
-import { Button } from '../ui/Button';
-import { scrollToSection } from '@/utils/scroll';
-import { useScrollAnimation } from './animations/useScrollAnimation';
-import type { HeroContentProps } from './types';
+"use client"; // Mark this as a Client Component
 
-export const HeroContent = ({ heading, description, buttons }: HeroContentProps) => {
+import { motion } from "framer-motion";
+import { Button } from "../ui/Button";
+import { scrollToSection } from "@/app/utils/scroll";
+import { useScrollAnimation } from "./animations/useScrollAnimation";
+import type { HeroContentProps } from "./types";
+
+export const HeroContent = ({
+  heading,
+  description,
+  buttons,
+}: HeroContentProps) => {
   const contentRef = useScrollAnimation();
 
   const handleClick = () => {
-    scrollToSection('cta');
+    scrollToSection("cta");
   };
 
   return (
     <div ref={contentRef} className="mb-12 text-center md:mb-18 lg:mb-20">
       <div className="mx-auto w-full max-w-3xl">
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -22,7 +28,7 @@ export const HeroContent = ({ heading, description, buttons }: HeroContentProps)
         >
           {heading}
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -30,7 +36,7 @@ export const HeroContent = ({ heading, description, buttons }: HeroContentProps)
         >
           {description}
         </motion.p>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}

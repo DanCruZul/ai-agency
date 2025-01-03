@@ -1,6 +1,6 @@
-import { statsDefaults } from './defaults';
-import { StatCard } from './StatCard';
-import type { StatsComponentProps } from './types';
+import { statsDefaults } from "./defaults";
+import { StatCard } from "./StatCard";
+import type { StatsComponentProps } from "./types";
 
 export const Stats = (props: StatsComponentProps) => {
   const { heading, stats } = {

@@ -1,24 +1,24 @@
-import { LegalLayout } from "@/components/sections/legal/components/LegalLayout";
-import { LegalHeader } from "@/components/sections/legal/components/LegalHeader";
-import { LegalSection } from "@/components/sections/legal/components/LegalSection";
+import { LegalLayout } from "@/app/components/legal/LegalLayout";
+import { LegalHeader } from "@/app/components/legal/LegalHeader";
+import { LegalSection } from "@/app/components/legal/LegalSection";
 
 export default function PrivacyPage() {
   return (
     <LegalLayout>
-      <LegalHeader 
-        title="Privacy Policy" 
-        lastUpdated="April 15, 2024"
-      />
-      
+      <LegalHeader title="Privacy Policy" lastUpdated="April 15, 2024" />
+
       <LegalSection title="Introduction">
         <p>
-          At AI Platform, we take your privacy seriously. This Privacy Policy explains how we collect, 
-          use, disclose, and safeguard your information when you use our service.
+          At AI Platform, we take your privacy seriously. This Privacy Policy
+          explains how we collect, use, disclose, and safeguard your information
+          when you use our service.
         </p>
       </LegalSection>
 
       <LegalSection title="Information We Collect">
-        <p>We collect information that you provide directly to us, including:</p>
+        <p>
+          We collect information that you provide directly to us, including:
+        </p>
         <ul className="list-disc pl-6 space-y-2">
           <li>Account information (name, email, password)</li>
           <li>Profile information</li>
@@ -40,9 +40,9 @@ export default function PrivacyPage() {
 
       <LegalSection title="Data Security">
         <p>
-          We implement appropriate technical and organizational security measures to protect 
-          your personal information. However, no method of transmission over the Internet is 
-          100% secure.
+          We implement appropriate technical and organizational security
+          measures to protect your personal information. However, no method of
+          transmission over the Internet is 100% secure.
         </p>
       </LegalSection>
     </LegalLayout>

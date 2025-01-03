@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { GrainEffect } from "@/components/ui/GrainEffect";
-import { Navbar } from "@/components/navigation/Navbar";
-import { Footer } from "@/components/navigation/Footer";
+import { GrainEffect } from "@/app/components/ui/GrainEffect";
+import { Navbar } from "@/app/components/navbar/Navbar";
+import { Footer } from "@/app/components/footer/Footer";
 
 export const metadata: Metadata = {
   title: "AI Platform",

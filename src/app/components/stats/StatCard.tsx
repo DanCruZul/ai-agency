@@ -1,3 +1,5 @@
+"use client";
+
 import { AnimatedNumber } from "./AnimatedNumber";
 import { motion } from "framer-motion";
 import type { StatsProps } from "./types";

@@ -1,5 +1,7 @@
+"use client"; // Mark this component as a Client Component
+
 import { Button } from "../ui/Button";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import type { ButtonProps } from "../ui/Button";
 
 type ButtonGroupProps = {
@@ -7,11 +9,11 @@ type ButtonGroupProps = {
 };
 
 export const ButtonGroup = ({ buttons }: ButtonGroupProps) => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handlePricingClick = () => {
-    navigate('/pricing');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    router.push("/pricing");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

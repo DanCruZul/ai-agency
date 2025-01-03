@@ -1,7 +1,9 @@
+"use client";
+
 import { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { Button } from "../ui/Button";
-import { scrollToSection } from "@/utils/scroll";
+import { scrollToSection } from "@/app/utils/scroll";
 import type { Feature } from "./types";
 
 export const FeatureCard = ({

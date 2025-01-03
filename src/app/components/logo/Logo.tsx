@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { logoDefaults } from "./defaults";
 import { LogoImage } from "./LogoImage";

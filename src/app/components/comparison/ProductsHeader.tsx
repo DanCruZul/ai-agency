@@ -1,5 +1,5 @@
-import { cn } from '@/utils/cn';
-import type { ComparisonProduct } from './types';
+import { cn } from "@/app/utils/cn";
+import type { ComparisonProduct } from "./types";
 
 type ProductsHeaderProps = {
   products: ComparisonProduct[];

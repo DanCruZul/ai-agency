@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from "next/link"; // Replace react-router-dom with next/link
 
 type LegalLinksProps = {
   copyright: string;
@@ -10,10 +10,10 @@ export const LegalLinks = ({ copyright }: LegalLinksProps) => (
     <div className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
       <p className="text-sm text-muted-foreground">{copyright}</p>
       <div className="flex gap-6 text-sm text-muted-foreground">
-        <Link to="/privacy" className="hover:text-white transition-colors">
+        <Link href="/privacy" className="hover:text-white transition-colors">
           Privacy Policy
         </Link>
-        <Link to="/terms" className="hover:text-white transition-colors">
+        <Link href="/terms" className="hover:text-white transition-colors">
           Terms of Service
         </Link>
       </div>

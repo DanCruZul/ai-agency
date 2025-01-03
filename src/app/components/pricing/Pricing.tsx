@@ -1,6 +1,8 @@
-import { pricingDefaults } from './defaults';
-import { PricingCard } from './PricingCard';
-import type { PricingComponentProps } from './types';
+"use client";
+
+import { pricingDefaults } from "./defaults";
+import { PricingCard } from "./PricingCard";
+import type { PricingComponentProps } from "./types";
 
 export const Pricing = (props: PricingComponentProps) => {
   const { tagline, heading, description, tiers, className, ...rest } = {

@@ -1,22 +1,15 @@
-import { PricingHeader } from "@/components/sections/pricing/PricingHeader";
-import { PricingTiers } from "@/components/sections/pricing/PricingTiers";
-import { LogoSection } from "@/components/sections/pricing/logo/LogoSection";
-import { Comparison } from "@/components/sections/pricing/comparison/Comparison";
-import { PricingFaq } from "@/components/sections/pricing/PricingFaq";
-import { pricingDefaults } from "@/components/sections/pricing/defaults";
+import { Pricing } from "@/app/components/pricing/Pricing";
+import { Logo } from "@/app/components/logo/Logo";
+import { Comparison } from "@/app/components/comparison/Comparison";
+import { Faq } from "@/app/components/faq/Faq";
 
 export default function PricingPage() {
   return (
     <main>
-      <section className="px-[5%] py-16 md:py-24 lg:py-28">
-        <div className="container mx-auto">
-          <PricingHeader {...pricingDefaults} />
-          <PricingTiers tiers={pricingDefaults.tiers} />
-        </div>
-      </section>
-      <LogoSection />
+      <Pricing />
+      <Logo />
       <Comparison />
-      <PricingFaq />
+      <Faq />
     </main>
   );
 }

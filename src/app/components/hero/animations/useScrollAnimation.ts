@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react';
+"use client";
+import { useEffect, useRef } from "react";
 
 export const useScrollAnimation = (preserveOpacity = false) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -7,26 +8,24 @@ export const useScrollAnimation = (preserveOpacity = false) => {
     const element = ref.current;
     if (!element) return;
 
-    // Check if scroll-driven animations are supported
-    if ('animate' in element && 'timeline' in window) {
+    if ("animate" in element && "timeline" in window) {
       const scrollTimeline = new ScrollTimeline({
         source: document.documentElement,
-        axis: 'block',
+        axis: "block",
       });
 
       element.animate(
         {
-          transform: ['translateY(0)', 'translateY(-20%)'],
+          transform: ["translateY(0)", "translateY(-20%)"],
           ...(preserveOpacity ? {} : { opacity: [1, 0.2] }),
         },
         {
           duration: 1,
           timeline: scrollTimeline,
-          fill: 'both',
+          fill: "both",
         }
       );
     } else {
-      // Fallback for browsers that don't support scroll-driven animations
       const handleScroll = () => {
         const scrolled = window.scrollY;
         const rate = Math.min(scrolled / 500, 1);
@@ -38,8 +37,8 @@ export const useScrollAnimation = (preserveOpacity = false) => {
         }
       };
 
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
     }
   }, [preserveOpacity]);
 

@@ -1,10 +1,13 @@
-import { Menu, X } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { scrollToSection } from '@/utils/scroll';
-import type { NavLink } from './types';
-import type { ButtonProps } from '../ui/Button';
+"use client"; // Mark this component as a Client Component
+
+import { Menu, X } from "lucide-react";
+import { Button } from "../ui/Button";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link"; // Replace react-router-dom's Link with next/link
+import { usePathname, useRouter } from "next/navigation"; // Replace react-router-dom with next/navigation
+import { scrollToSection } from "@/app/utils/scroll";
+import type { NavLink } from "./types";
+import type { ButtonProps } from "../ui/Button";
 
 type MobileNavProps = {
   isOpen: boolean;
@@ -15,18 +18,33 @@ type MobileNavProps = {
   onCtaClick: () => void;
 };
 
-export const MobileNav = ({ isOpen, onToggle, links, buttons, onNavClick, onCtaClick }: MobileNavProps) => {
-  const location = useLocation();
-  const navigate = useNavigate();
+export const MobileNav = ({
+  isOpen,
+  onToggle,
+  links,
+  buttons,
+  onNavClick,
+  onCtaClick,
+}: MobileNavProps) => {
+  const pathname = usePathname(); // Replace useLocation with usePathname
+  const router = useRouter(); // Replace useNavigate with useRouter
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault();
-    if (location.pathname === '/') {
+    if (pathname === "/") {
+      // If on the home page, scroll to the section
       scrollToSection(href);
     } else {
-      navigate('/', { state: { scrollTo: href } });
+      // If not on the home page, navigate to the home page and scroll to the section
+      router.push("/"); // Navigate to the home page
+      setTimeout(() => {
+        scrollToSection(href); // Scroll to the section after navigation
+      }, 100); // Add a small delay to ensure the page has loaded
     }
-    onToggle();
+    onToggle(); // Close the mobile menu
   };
 
   return (
@@ -48,18 +66,23 @@ export const MobileNav = ({ isOpen, onToggle, links, buttons, onNavClick, onCtaC
           >
             <div className="flex flex-col space-y-4">
               {links.map((link, index) => (
-                <a
+                <Link
                   key={index}
-                  href={`#${link.href}`}
+                  href={`#${link.href}`} // Use href for the link destination
                   className="text-muted-foreground hover:text-primary transition-colors"
-                  onClick={(e) => handleClick(e, link.href)}
+                  onClick={(e) => handleClick(e, link.href)} // Handle click for smooth scrolling
                 >
                   {link.title}
-                </a>
+                </Link>
               ))}
               <div className="flex flex-col gap-2 pt-2">
                 {buttons.map((button, index) => (
-                  <Button key={index} {...button} className="w-full" onClick={onCtaClick}>
+                  <Button
+                    key={index}
+                    {...button}
+                    className="w-full"
+                    onClick={onCtaClick}
+                  >
                     {button.title}
                   </Button>
                 ))}
@@ -70,4 +93,4 @@ export const MobileNav = ({ isOpen, onToggle, links, buttons, onNavClick, onCtaC
       </AnimatePresence>
     </div>
   );
-}
+};

@@ -1,13 +1,13 @@
-import { Hero } from "@/components/sections/hero/Hero";
-import { Logo } from "@/components/sections/logo/Logo";
-import { Solutions } from "@/components/sections/solutions/Solutions";
-import { Layout } from "@/components/sections/features/Layout";
-import { Stats } from "@/components/sections/stats/Stats";
-import { Benefits } from "@/components/sections/benefits/Benefits";
-import { Layout486 } from "@/components/sections/howitworks/Layout486";
-import { Testimonials } from "@/components/sections/testimonials/Testimonials";
-import { Faq } from "@/components/sections/faq/Faq";
-import { Cta } from "@/components/sections/cta/Cta";
+import { Hero } from "@/app/components/hero/Hero";
+import { Logo } from "@/app/components/logo/Logo";
+import { Solutions } from "@/app/components/solutions/Solutions";
+import { Layout } from "@/app/components/features/Layout";
+import { Stats } from "@/app/components/stats/Stats";
+import { Benefits } from "@/app/components/benefits/Benefits";
+import { Layout486 } from "@/app/components/howitworks/Layout486";
+import { Testimonials } from "@/app/components/testimonials/Testimonials";
+import { Faq } from "@/app/components/faq/Faq";
+import { Cta } from "@/app/components/cta/Cta";
 
 export default function HomePage() {
   return (
