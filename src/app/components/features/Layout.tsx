@@ -25,13 +25,13 @@ export const Layout = (props: LayoutSectionProps) => {
     >
       <div className="container relative mx-auto">
         {/* 3D Background */}
-        <div className="absolute inset-0 before:absolute before:inset-0 after:absolute after:inset-0">
+        {/* <div className="absolute inset-0 before:absolute before:inset-0 after:absolute after:inset-0">
           <div className="absolute inset-0 flex items-end justify-center">
             <div className="h-[600px] w-[1000px]">
               <SplineViewer />
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="mb-12 md:mb-18 lg:mb-20">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 font-semibold text-primary md:mb-6">{tagline}</p>
