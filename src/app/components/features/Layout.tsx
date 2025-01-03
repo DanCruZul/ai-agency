@@ -1,6 +1,7 @@
 import { FeatureSection } from "./FeatureSection";
 import type { LayoutSectionProps } from "./types";
 import { layoutDefaults } from "./defaults";
+import Robot from "./Robot";
 
 export const Layout = (props: LayoutSectionProps) => {
   const {
@@ -23,6 +24,14 @@ export const Layout = (props: LayoutSectionProps) => {
       {...rest}
     >
       <div className="container relative mx-auto">
+        {/* 3D Background */}
+        <div className="absolute inset-0 before:absolute before:inset-0 after:absolute after:inset-0">
+          <div className="absolute inset-0 flex items-end justify-center">
+            <div className="max-lg:h-[600px] max max-lg:w-[1000px] lg:size-full lg:pt-40 xl:pt-0 2xl:pt-40">
+              <Robot />
+            </div>
+          </div>
+        </div>
         <div className="mb-12 md:mb-18 lg:mb-20">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 font-semibold text-primary md:mb-6">{tagline}</p>
@@ -34,7 +43,9 @@ export const Layout = (props: LayoutSectionProps) => {
         </div>
         <div className="relative grid place-items-center gap-x-8 gap-y-12 sm:grid-cols-2 md:gap-y-16 lg:grid-cols-[1fr_1.5fr_1fr] lg:gap-x-12">
           <FeatureSection sections={leftSections} />
-          <div className="relative order-last h-[500px] w-full opacity-0 sm:col-span-2 lg:order-none lg:col-span-1"></div>
+          <div className="relative order-last h-[500px] w-full opacity-0 sm:col-span-2 lg:order-none lg:col-span-1">
+            <Robot />
+          </div>
           <FeatureSection sections={rightSections} />
         </div>
       </div>

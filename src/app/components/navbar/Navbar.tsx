@@ -5,7 +5,7 @@ import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
 import { navbarDefaults } from "./defaults";
 import { Logo } from "../ui/Logo";
-import { useNavigation } from "./hooks/UseNavigation";
+import { useNavigation } from "./hooks/useNavigation";
 import Link from "next/link";
 import type { NavbarComponentProps } from "./types";
 
