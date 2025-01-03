@@ -1,24 +1,30 @@
-"use client"; // Mark this as a Client Component
+"use client";
 
 import { motion } from "framer-motion";
 import { Button } from "../ui/Button";
 import { scrollToSection } from "@/app/utils/scroll";
 import { useScrollAnimation } from "./animations/useScrollAnimation";
-import type { HeroContentProps } from "./types";
 
 export const HeroContent = ({
   heading,
   description,
   buttons,
 }: HeroContentProps) => {
-  const contentRef = useScrollAnimation();
+  const { ref, translateY, opacity } = useScrollAnimation();
 
   const handleClick = () => {
     scrollToSection("cta");
   };
 
   return (
-    <div ref={contentRef} className="mb-12 text-center md:mb-18 lg:mb-20">
+    <motion.div
+      ref={ref}
+      style={{ 
+        translateY,
+        opacity
+      }}
+      className="mb-12 text-center md:mb-18 lg:mb-20"
+    >
       <div className="mx-auto w-full max-w-3xl">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -47,6 +53,6 @@ export const HeroContent = ({
           </Button>
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };

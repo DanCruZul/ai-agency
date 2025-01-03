@@ -1,46 +1,30 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 
 export const useScrollAnimation = (preserveOpacity = false) => {
   const ref = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+  
+  // Create a smooth spring animation for the scroll value
+  const smoothScrollY = useSpring(scrollY, {
+    stiffness: 100,
+    damping: 30,
+    mass: 0.5
+  });
 
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
+  // Transform the scroll value into opacity and translateY values
+  const translateY = useTransform(smoothScrollY, 
+    [0, 500], 
+    [0, -20],
+    { clamp: true }
+  );
 
-    if ("animate" in element && "timeline" in window) {
-      const scrollTimeline = new ScrollTimeline({
-        source: document.documentElement,
-        axis: "block",
-      });
+  const opacity = useTransform(smoothScrollY,
+    [0, 500],
+    [1, preserveOpacity ? 1 : 0.2],
+    { clamp: true }
+  );
 
-      element.animate(
-        {
-          transform: ["translateY(0)", "translateY(-20%)"],
-          ...(preserveOpacity ? {} : { opacity: [1, 0.2] }),
-        },
-        {
-          duration: 1,
-          timeline: scrollTimeline,
-          fill: "both",
-        }
-      );
-    } else {
-      const handleScroll = () => {
-        const scrolled = window.scrollY;
-        const rate = Math.min(scrolled / 500, 1);
-        if (element) {
-          element.style.transform = `translateY(-${rate * 20}%)`;
-          if (!preserveOpacity) {
-            element.style.opacity = `${1 - rate * 0.8}`;
-          }
-        }
-      };
-
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
-  }, [preserveOpacity]);
-
-  return ref;
+  return { ref, translateY, opacity };
 };

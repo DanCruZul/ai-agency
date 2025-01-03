@@ -32,7 +32,7 @@ export const PreviewCard = ({ content }: { content: TabContent }) => {
           alt={content.preview.alt}
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent">
+        <div className="absolute hidden lg:block inset-0 bg-gradient-to-t from-background/90 to-transparent">
           <div className="absolute bottom-0 left-0 w-full p-6">
             <MetricsDisplay metrics={content.preview.metrics} />
           </div>
