@@ -1,4 +1,4 @@
-import type { LucideIcon } from 'lucide-react';
+import type { LucideIcon } from "lucide-react";
 
 export type FooterLink = {
   title: string;
@@ -28,12 +28,10 @@ export type ContactInfo = {
 };
 
 export type FooterProps = {
-  logo: string;
+  logo?: string;
   description: string;
   columns: FooterColumn[];
   socialLinks: SocialLink[];
-  contactInfo: ContactInfo;
-  legalLinks: LegalLink[];
+  legalLinks?: LegalLink[]; // Optional
   copyright: string;
-  certifications: string[];
 };

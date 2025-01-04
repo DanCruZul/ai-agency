@@ -1,4 +1,4 @@
-"use client"; // Mark this component as a Client Component
+"use client";
 
 import { Button } from "../ui/Button";
 import { useRouter } from "next/navigation";

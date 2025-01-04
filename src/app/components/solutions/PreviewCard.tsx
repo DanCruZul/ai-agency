@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image"; // Import the Image component
 import { MetricsDisplay } from "./MetricsDisplay";
 import type { TabContent } from "./types";
 
@@ -27,10 +28,13 @@ export const PreviewCard = ({ content }: { content: TabContent }) => {
         transition={{ duration: 0.5 }}
         className="relative aspect-video overflow-hidden rounded-xl"
       >
-        <img
+        <Image
           src={content.preview.image}
           alt={content.preview.alt}
+          width={800} // Set the width of the image
+          height={450} // Set the height of the image
           className="h-full w-full object-cover"
+          priority // Use priority if this image is above the fold
         />
         <div className="absolute hidden lg:block inset-0 bg-gradient-to-t from-background/90 to-transparent">
           <div className="absolute bottom-0 left-0 w-full p-6">

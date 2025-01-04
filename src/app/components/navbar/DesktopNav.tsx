@@ -14,12 +14,7 @@ type DesktopNavProps = {
   onCtaClick: () => void;
 };
 
-export const DesktopNav = ({
-  links,
-  buttons,
-  onNavClick,
-  onCtaClick,
-}: DesktopNavProps) => {
+export const DesktopNav = ({ links, buttons, onCtaClick }: DesktopNavProps) => {
   const pathname = usePathname(); // Replace useLocation with usePathname
   const router = useRouter(); // Replace useNavigate with useRouter
 

@@ -10,7 +10,7 @@ import Link from "next/link";
 import type { NavbarComponentProps } from "./types";
 
 export const Navbar = (props: NavbarComponentProps) => {
-  const { logo, links, buttons, className, ...rest } = {
+  const { links, buttons, ...rest } = {
     ...navbarDefaults,
     ...props,
   };

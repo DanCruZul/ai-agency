@@ -23,7 +23,6 @@ export const MobileNav = ({
   onToggle,
   links,
   buttons,
-  onNavClick,
   onCtaClick,
 }: MobileNavProps) => {
   const pathname = usePathname(); // Replace useLocation with usePathname

@@ -16,8 +16,8 @@ export default function NotFound() {
         <div className="max-w-2xl space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-150">
           <h2 className="text-3xl font-bold md:text-4xl">Page not found</h2>
           <p className="text-lg text-muted-foreground">
-            The page you're looking for doesn't exist or has been moved. Let's
-            get you back on track.
+            The page you&apos;re looking for doesn&apos;t exist or has been
+            moved. Let&apos;s get you back on track.
           </p>
 
           {/* Navigation Buttons */}

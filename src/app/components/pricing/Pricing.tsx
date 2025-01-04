@@ -5,7 +5,7 @@ import { PricingCard } from "./PricingCard";
 import type { PricingComponentProps } from "./types";
 
 export const Pricing = (props: PricingComponentProps) => {
-  const { tagline, heading, description, tiers, className, ...rest } = {
+  const { tagline, heading, description, tiers, ...rest } = {
     ...pricingDefaults,
     ...props,
   };

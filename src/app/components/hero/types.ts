@@ -5,7 +5,7 @@ export type ImageProps = {
 
 export type ButtonProps = {
   title: string;
-  variant?: 'primary' | 'secondary';
+  variant?: "primary" | "secondary";
 };
 
 export type HeroProps = {
@@ -13,4 +13,10 @@ export type HeroProps = {
   description: string;
   buttons: ButtonProps[];
   image: ImageProps;
+};
+
+export type HeroContentProps = {
+  heading: string;
+  description: string;
+  buttons: ButtonProps[];
 };

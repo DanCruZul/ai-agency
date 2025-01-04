@@ -1,9 +1,14 @@
 import React from "react";
 import { cn } from "@/app/utils/cn";
-import type { Tab } from "../features/types";
+import type { Tab } from "../features/types"; // Ensure this import is correct
 
 type TabsProps = {
   defaultValue: string;
+  children: React.ReactNode;
+};
+
+type TabContentProps = {
+  tab: Tab;
   children: React.ReactNode;
 };
 
@@ -11,8 +16,10 @@ export const Tabs = ({ defaultValue, children }: TabsProps) => {
   const [activeTab, setActiveTab] = React.useState(defaultValue);
 
   const tabs = React.Children.toArray(children)
-    .filter(React.isValidElement)
-    .map((child) => child.props.tab as Tab);
+    .filter((child): child is React.ReactElement<TabContentProps> =>
+      React.isValidElement(child)
+    )
+    .map((child) => child.props.tab);
 
   return (
     <div className="w-full">
@@ -37,7 +44,7 @@ export const Tabs = ({ defaultValue, children }: TabsProps) => {
       <div className="mt-6">
         {React.Children.map(children, (child) => {
           if (
-            React.isValidElement(child) &&
+            React.isValidElement<TabContentProps>(child) &&
             child.props.tab.value === activeTab
           ) {
             return child;

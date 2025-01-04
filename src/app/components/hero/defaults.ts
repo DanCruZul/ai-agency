@@ -16,6 +16,5 @@ export const heroDefaults: HeroProps = {
   ],
   image: {
     src: "https://cdn.prod.website-files.com/5db1c0d5ca3871e8fd1a7b66/5f63b11306f1836426846360_0*6_IW_DdVcs4J1dmx.png",
-    alt: "Enterprise AI Dashboard with real-time analytics",
   },
 };

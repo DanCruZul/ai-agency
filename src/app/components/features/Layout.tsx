@@ -10,7 +10,6 @@ export const Layout = (props: LayoutSectionProps) => {
     description,
     leftSections,
     rightSections,
-    className,
     ...rest
   } = {
     ...layoutDefaults,

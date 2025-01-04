@@ -1,5 +1,6 @@
 import { Button } from "../ui/Button";
 import type { BenefitCard as BenefitCardType } from "./types";
+import Image from "next/image";
 
 export const BenefitCard = ({
   tagline,
@@ -13,9 +14,11 @@ export const BenefitCard = ({
   return (
     <div className="grid auto-cols-fr grid-cols-1 rounded-2xl bg-card text-card-foreground border border-border last:row-span-2 last:flex last:flex-col sm:grid-cols-2 lg:col-span-2 lg:last:col-span-1 overflow-hidden backdrop-blur-sm">
       <div className="flex h-64 w-full sm:h-full">
-        <img
+        <Image
           src={image.src}
-          alt={image.alt}
+          alt={image.alt ?? "Default alt text"}
+          width={500}
+          height={300}
           className="h-full w-full object-cover"
         />
       </div>

@@ -12,7 +12,7 @@ export const SocialLinks = ({ links }: SocialLinksProps) => (
         <a
           key={index}
           href={social.href}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-primary-foreground transition-colors hover:bg-primary/90 "
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-primary-foreground transition-colors hover:bg-primary/90"
           aria-label={social.label}
           target="_blank"
           rel="noopener noreferrer"

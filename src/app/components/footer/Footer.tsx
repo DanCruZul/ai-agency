@@ -6,21 +6,11 @@ import { SocialLinks } from "./SocialLinks";
 import { LegalLinks } from "./LegalLinks";
 import { Logo } from "../ui/Logo";
 import { usePathname, useRouter } from "next/navigation"; // Replace react-router-dom with next/navigation
-import type { FooterComponentProps } from "./types";
 
-export const Footer = (props: FooterComponentProps) => {
-  const {
-    logo,
-    description,
-    columns,
-    socialLinks,
-    copyright,
-    className,
-    ...rest
-  } = {
-    ...footerDefaults,
-    ...props,
-  };
+export const Footer = () => {
+  // Use default props from footerDefaults
+  const { logo, description, columns, socialLinks, copyright, legalLinks } =
+    footerDefaults;
 
   const pathname = usePathname(); // Use usePathname instead of useLocation
   const router = useRouter(); // Use useRouter instead of useNavigate
@@ -45,16 +35,13 @@ export const Footer = (props: FooterComponentProps) => {
   };
 
   return (
-    <footer
-      className="bg-gradient-to-b from-background/50 to-background border-t border-border"
-      {...rest}
-    >
+    <footer className="bg-gradient-to-b from-background/50 to-background border-t border-border">
       <div className="mx-auto max-w-7xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
         {/* Top Section */}
         <div className="grid gap-12 lg:grid-cols-[2fr_1fr]">
           {/* Brand Section */}
           <div className="max-w-xl">
-            <Logo size="lg" />
+            {logo && <Logo size="lg" />} {/* Render logo if provided */}
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               {description}
             </p>
@@ -66,7 +53,7 @@ export const Footer = (props: FooterComponentProps) => {
         </div>
 
         {/* Bottom Section */}
-        <LegalLinks copyright={copyright} />
+        <LegalLinks copyright={copyright} legalLinks={legalLinks} />
       </div>
     </footer>
   );

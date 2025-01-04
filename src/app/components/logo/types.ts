@@ -8,4 +8,5 @@ export type LogoProps = {
   logos: ImageProps[];
 };
 
-export type Logo1Props = React.ComponentPropsWithoutRef<"section"> & Partial<LogoProps>;
+export type LogoComponentProps = React.ComponentPropsWithoutRef<"section"> &
+  Partial<LogoProps>;

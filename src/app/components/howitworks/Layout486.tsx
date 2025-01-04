@@ -9,7 +9,7 @@ import { useTabletMediaQuery } from "./hooks/useTabletMediaQuery";
 import type { Layout486ComponentProps } from "./types";
 
 export const Layout486 = (props: Layout486ComponentProps) => {
-  const { features, className, ...rest } = {
+  const { features, ...rest } = {
     ...layout486Defaults,
     ...props,
   };

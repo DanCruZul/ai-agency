@@ -1,5 +1,4 @@
-import type { ButtonProps } from '../ui/Button';
-import { LucideIcon } from 'lucide-react';
+import { LucideIcon } from "lucide-react";
 
 export type IconProps = {
   icon: LucideIcon;
@@ -24,4 +23,11 @@ export type LayoutProps = {
   };
 };
 
-export type LayoutSectionProps = React.ComponentPropsWithoutRef<"section"> & Partial<LayoutProps>;
+export type LayoutSectionProps = React.ComponentPropsWithoutRef<"section"> &
+  Partial<LayoutProps>;
+
+// Add the Tab type
+export type Tab = {
+  value: string;
+  trigger: string;
+};

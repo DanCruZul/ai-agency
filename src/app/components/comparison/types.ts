@@ -1,5 +1,5 @@
-import type { LucideIcon } from 'lucide-react';
-import type { ButtonProps } from '@/components/ui/Button';
+import type { LucideIcon } from "lucide-react";
+import type { ButtonProps } from "@/app/components/ui/Button";
 
 export type ComparisonFeature = {
   text: string;

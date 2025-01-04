@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { solutionsDefaults } from "./defaults";
 import { PreviewCard } from "./PreviewCard";
-import type { SolutionsComponentProps, SolutionTab } from "./types";
+import type { SolutionsComponentProps } from "./types";
 
 export const Solutions = (props: SolutionsComponentProps) => {
   const { tagline, heading, description, tabs } = {

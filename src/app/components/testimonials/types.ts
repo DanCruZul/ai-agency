@@ -1,5 +1,3 @@
-import type { LucideIcon } from 'lucide-react';
-
 export type ImageProps = {
   src: string;
   alt?: string;
@@ -20,5 +18,5 @@ export type TestimonialsProps = {
   testimonials: Testimonial[];
 };
 
-export type TestimonialsComponentProps = React.ComponentPropsWithoutRef<"section"> & 
-  Partial<TestimonialsProps>;
+export type TestimonialsComponentProps =
+  React.ComponentPropsWithoutRef<"section"> & Partial<TestimonialsProps>;

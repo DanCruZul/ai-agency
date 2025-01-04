@@ -72,3 +72,16 @@
     font-family: "General Sans", system-ui, -apple-system, sans-serif;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}

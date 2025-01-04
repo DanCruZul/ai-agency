@@ -3,7 +3,7 @@ import { TestimonialCard } from "./TestimonialCard";
 import type { TestimonialsComponentProps } from "./types";
 
 export const Testimonials = (props: TestimonialsComponentProps) => {
-  const { heading, description, testimonials, className, ...rest } = {
+  const { heading, description, testimonials, ...rest } = {
     ...testimonialsDefaults,
     ...props,
   };

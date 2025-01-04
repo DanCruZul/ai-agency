@@ -3,7 +3,7 @@ import { BenefitCard } from "./BenefitCard";
 import type { BenefitsComponentProps } from "./types";
 
 export const Benefits = (props: BenefitsComponentProps) => {
-  const { tagline, heading, description, cards, className, ...rest } = {
+  const { tagline, heading, description, cards, ...rest } = {
     ...benefitsDefaults,
     ...props,
   };

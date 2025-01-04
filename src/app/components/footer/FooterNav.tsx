@@ -33,4 +33,4 @@ export const FooterNav = ({ columns, onNavClick }: FooterNavProps) => {
       ))}
     </div>
   );
-}
+};

@@ -1,5 +1,4 @@
 import { Check, X } from "lucide-react";
-import { cn } from "@/app/utils/cn";
 import type { ComparisonFeature } from "./types";
 
 type FeatureRowProps = {

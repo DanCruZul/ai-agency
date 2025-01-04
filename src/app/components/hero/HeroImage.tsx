@@ -1,11 +1,14 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "./animations/useScrollAnimation";
-import { LazyImage } from "../LazyImage";
-import type { ImageProps } from "./types";
+import Image from "next/image";
 
-export const HeroImage = ({ src, alt }: ImageProps) => {
+type ImageProps = {
+  src: string;
+  alt?: string;
+};
+
+export const HeroImage = ({ src }: ImageProps) => {
   const { ref, translateY, opacity } = useScrollAnimation(true);
 
   return (
@@ -17,10 +20,13 @@ export const HeroImage = ({ src, alt }: ImageProps) => {
       transition={{ duration: 0.5, delay: 0.6 }}
       className="w-full max-w-5xl"
     >
-      <LazyImage
+      <Image
         src={src}
-        alt={alt}
+        alt="Enterprise AI Dashboard with real-time analytics"
+        width={1200}
+        height={800}
         className="w-full h-full object-cover rounded-lg shadow-lg"
+        priority // Ensures the image is prioritized for loading
       />
     </motion.div>
   );

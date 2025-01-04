@@ -1,5 +1,3 @@
-import type { ButtonProps } from '../ui/Button';
-
 export type QuestionProps = {
   title: string;
   answer: string;
@@ -11,4 +9,5 @@ export type FaqProps = {
   questions: QuestionProps[];
 };
 
-export type FaqComponentProps = React.ComponentPropsWithoutRef<"section"> & Partial<FaqProps>;
+export type FaqComponentProps = React.ComponentPropsWithoutRef<"section"> &
+  Partial<FaqProps>;

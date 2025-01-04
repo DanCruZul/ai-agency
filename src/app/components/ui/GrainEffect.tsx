@@ -3,7 +3,7 @@ import { memo } from "react";
 export const GrainEffect = memo(() => {
   return (
     <svg
-      className="fixed inset-0 z-[-1] opacity-[0.02] pointer-events-none"
+      className="fixed inset-0 z-[-1] opacity-[0.2] pointer-events-none"
       width="100%"
       height="100%"
     >
@@ -15,3 +15,6 @@ export const GrainEffect = memo(() => {
     </svg>
   );
 });
+
+// Add displayName to the GrainEffect component
+GrainEffect.displayName = "GrainEffect";

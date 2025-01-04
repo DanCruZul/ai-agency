@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const About = () => {
   return (
@@ -10,7 +10,10 @@ export const About = () => {
             Transforming businesses with AI
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600 md:text-xl">
-            We're on a mission to make artificial intelligence accessible and practical for businesses of all sizes. Our platform combines cutting-edge technology with intuitive design to deliver powerful AI solutions.
+            We&apos;re on a mission to make artificial intelligence accessible
+            and practical for businesses of all sizes. Our platform combines
+            cutting-edge technology with intuitive design to deliver powerful AI
+            solutions.
           </p>
         </div>
       </div>

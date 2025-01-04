@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { logoDefaults } from "./defaults";
 import { LogoImage } from "./LogoImage";
-import type { LogoComponentProps } from "./types";
+import type { LogoComponentProps, ImageProps } from "./types";
 
 export const Logo = (props: LogoComponentProps) => {
   const { heading, logos } = {
@@ -21,9 +21,9 @@ export const Logo = (props: LogoComponentProps) => {
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
 
-          {/* Logos grid - Now using 2 columns on mobile and 4 on larger screens */}
+          {/* Logos grid */}
           <div className="grid grid-cols-2 gap-6 px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-8">
-            {logos.map((logo, index) => (
+            {logos.map((logo: ImageProps, index: number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

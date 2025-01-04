@@ -3,7 +3,7 @@ import { StatCard } from "./StatCard";
 import type { StatsComponentProps } from "./types";
 
 export const Stats = (props: StatsComponentProps) => {
-  const { heading, stats } = {
+  const { stats } = {
     ...statsDefaults,
     ...props,
   };

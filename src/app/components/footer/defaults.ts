@@ -21,5 +21,9 @@ export const footerDefaults: FooterProps = {
     { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
     { icon: Github, href: "https://github.com", label: "GitHub" },
   ],
+  legalLinks: [
+    { title: "Privacy Policy", href: "/privacy-policy" },
+    { title: "Terms of Service", href: "/terms-of-service" },
+  ], // Add legalLinks
   copyright: "© 2024 AI Platform. All rights reserved.",
 };

@@ -3,9 +3,6 @@ import "./globals.css";
 import { GrainEffect } from "@/app/components/ui/GrainEffect";
 import { Navbar } from "@/app/components/navbar/Navbar";
 import { Footer } from "@/app/components/footer/Footer";
-import { LoadingProvider } from "@/app/components/LoadingProvider";
-import { InitialLoader } from "@/app/components/InitialLoader";
-import { preloadCriticalImages } from "./utils/loadingOptimization";
 
 export const metadata: Metadata = {
   title: "AI Platform",
@@ -18,24 +15,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Preload critical fonts
-const preloadFonts = [
-  {
-    rel: "preload",
-    href: "/fonts/General Sans/GeneralSans-Medium.otf",
-    as: "font",
-    type: "font/otf",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "preload",
-    href: "/fonts/Quicksand/Quicksand-Medium.otf",
-    as: "font",
-    type: "font/otf",
-    crossOrigin: "anonymous",
-  },
-];
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -43,28 +22,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {preloadFonts.map((font, index) => (
-          <link key={index} {...font} />
-        ))}
-      </head>
       <body>
-        <LoadingProvider>
-          <InitialLoader />
-          <div className="min-h-screen text-foreground">
-            <GrainEffect />
-            <div className="relative">
-              <Navbar />
-              {children}
-              <Footer />
-            </div>
+        <div className="min-h-screen fade-in">
+          <GrainEffect />
+          <div className="relative">
+            <Navbar />
+            <link
+              rel="preload"
+              href="https://example.com/path-to-hero-image.jpg"
+              as="image"
+              crossOrigin="anonymous"
+            />
+            {children}
+            <Footer />
           </div>
-        </LoadingProvider>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(${preloadCriticalImages.toString()})();`,
-          }}
-        />
+        </div>
       </body>
     </html>
   );

@@ -1,16 +1,14 @@
 import { ctaDefaults } from "./defaults";
 import { AnimatedText } from "./AnimatedText";
 import { ButtonGroup } from "./ButtonGroup";
-import { BenefitList } from "./BenefitList";
 import { TrialFeatures } from "./TrialFeatures";
 import type { CtaComponentProps } from "./types";
 
 export const Cta = (props: CtaComponentProps) => {
-  const { headers, description, benefits, buttons, trial, className, ...rest } =
-    {
-      ...ctaDefaults,
-      ...props,
-    };
+  const { headers, description, benefits, buttons, trial, ...rest } = {
+    ...ctaDefaults,
+    ...props,
+  };
 
   return (
     <section
