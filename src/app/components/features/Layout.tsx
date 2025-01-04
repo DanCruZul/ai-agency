@@ -26,7 +26,7 @@ export const Layout = (props: LayoutSectionProps) => {
         {/* 3D Background */}
         <div className="absolute inset-0 before:absolute before:inset-0 after:absolute after:inset-0">
           <div className="absolute inset-0 flex items-end justify-center ">
-            <div className="max-lg:h-[600px] max-lg:w-[1000px] lg:size-full lg:pt-40 xl:pt-20 2xl:pt-40">
+            <div className="lg:size-full lg:pt-40 xl:pt-20 2xl:pt-40">
               <Robot />
             </div>
           </div>
@@ -42,7 +42,7 @@ export const Layout = (props: LayoutSectionProps) => {
         </div>
         <div className="relative grid place-items-center gap-x-8 gap-y-12 sm:grid-cols-2 md:gap-y-16 lg:grid-cols-[1fr_1.5fr_1fr] lg:gap-x-12">
           <FeatureSection sections={leftSections} />
-          <div className="relative order-last h-[500px] w-full opacity-0 sm:col-span-2 lg:order-none lg:col-span-1">
+          <div className="relative max-lg:hidden order-last h-[500px] w-full opacity-0 sm:col-span-2 lg:order-none lg:col-span-1">
             <Robot />
           </div>
           <FeatureSection sections={rightSections} />
