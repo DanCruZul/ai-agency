@@ -22,7 +22,7 @@ export const Logo = (props: LogoComponentProps) => {
           <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
 
           {/* Logos grid */}
-          <div className="grid grid-cols-2 gap-6 px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-8">
+          <div className="flex flex-wrap justify-evenly items-center gap-6 px-4">
             {logos.map((logo: ImageProps, index: number) => (
               <motion.div
                 key={index}

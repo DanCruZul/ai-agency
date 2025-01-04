@@ -1,3 +1,5 @@
+"use client"; // Mark this as a Client Component
+
 import Link from "next/link";
 import { Home, ArrowLeft } from "lucide-react";
 import { Button } from "@/app/components/ui/Button";
