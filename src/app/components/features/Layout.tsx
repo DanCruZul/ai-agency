@@ -25,8 +25,8 @@ export const Layout = (props: LayoutSectionProps) => {
       <div className="container relative mx-auto">
         {/* 3D Background */}
         <div className="absolute inset-0 before:absolute before:inset-0 after:absolute after:inset-0">
-          <div className="absolute inset-0 flex items-end justify-center">
-            <div className="max-lg:h-[600px] max max-lg:w-[1000px] lg:size-full lg:pt-40 xl:pt-0 2xl:pt-40">
+          <div className="absolute inset-0 flex items-end justify-center ">
+            <div className="max-lg:h-[600px] max-lg:w-[1000px] lg:size-full lg:pt-40 xl:pt-20 2xl:pt-40">
               <Robot />
             </div>
           </div>

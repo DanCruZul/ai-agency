@@ -1,9 +1,11 @@
+"use client";
+import { memo } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image"; // Import the Image component
+import Image from "next/image";
 import { MetricsDisplay } from "./MetricsDisplay";
 import type { TabContent } from "./types";
 
-export const PreviewCard = ({ content }: { content: TabContent }) => {
+export const PreviewCard = memo(({ content }: { content: TabContent }) => {
   return (
     <div className="relative overflow-hidden rounded-2xl bg-card text-card-foreground border border-border p-8 backdrop-blur-sm">
       <div className="mb-8 space-y-4">
@@ -25,16 +27,17 @@ export const PreviewCard = ({ content }: { content: TabContent }) => {
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
         className="relative aspect-video overflow-hidden rounded-xl"
       >
         <Image
           src={content.preview.image}
           alt={content.preview.alt}
-          width={800} // Set the width of the image
-          height={450} // Set the height of the image
+          width={800}
+          height={450}
           className="h-full w-full object-cover"
-          priority // Use priority if this image is above the fold
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, 800px"
         />
         <div className="absolute hidden lg:block inset-0 bg-gradient-to-t from-background/90 to-transparent">
           <div className="absolute bottom-0 left-0 w-full p-6">
@@ -44,4 +47,6 @@ export const PreviewCard = ({ content }: { content: TabContent }) => {
       </motion.div>
     </div>
   );
-};
+});
+
+PreviewCard.displayName = "PreviewCard";

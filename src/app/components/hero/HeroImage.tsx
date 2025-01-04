@@ -1,4 +1,5 @@
 "use client";
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "./animations/useScrollAnimation";
 import Image from "next/image";
@@ -8,7 +9,8 @@ type ImageProps = {
   alt?: string;
 };
 
-export const HeroImage = ({ src }: ImageProps) => {
+// Memoize the component to prevent unnecessary re-renders
+export const HeroImage = memo(({ src }: ImageProps) => {
   const { ref, translateY, opacity } = useScrollAnimation(true);
 
   return (
@@ -17,7 +19,7 @@ export const HeroImage = ({ src }: ImageProps) => {
       style={{ translateY, opacity }}
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: 0.6 }}
+      transition={{ duration: 0.3 }}
       className="w-full max-w-5xl"
     >
       <Image
@@ -26,8 +28,12 @@ export const HeroImage = ({ src }: ImageProps) => {
         width={1200}
         height={800}
         className="w-full h-full object-cover rounded-lg shadow-lg"
-        priority // Ensures the image is prioritized for loading
+        priority
+        loading="eager"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
       />
     </motion.div>
   );
-};
+});
+
+HeroImage.displayName = "HeroImage";
