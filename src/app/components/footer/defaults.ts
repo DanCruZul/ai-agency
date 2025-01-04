@@ -22,8 +22,8 @@ export const footerDefaults: FooterProps = {
     { icon: Github, href: "https://github.com", label: "GitHub" },
   ],
   legalLinks: [
-    { title: "Privacy Policy", href: "/privacy-policy" },
-    { title: "Terms of Service", href: "/terms-of-service" },
-  ], // Add legalLinks
+    { title: "Privacy Policy", href: "/privacy" },
+    { title: "Terms of Service", href: "/terms" },
+  ],
   copyright: "© 2024 AI Platform. All rights reserved.",
 };

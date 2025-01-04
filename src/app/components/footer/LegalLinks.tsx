@@ -3,7 +3,7 @@ import type { LegalLink } from "./types";
 
 type LegalLinksProps = {
   copyright: string;
-  legalLinks?: LegalLink[]; // Add legalLinks prop
+  legalLinks?: LegalLink[];
 };
 
 export const LegalLinks = ({ copyright, legalLinks }: LegalLinksProps) => (

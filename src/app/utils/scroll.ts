@@ -1,21 +1,18 @@
+// Get the navbar height - matches the h-16 Tailwind class
+const NAVBAR_HEIGHT = 64;
+
+/**
+ * Scrolls to a section smoothly with navbar offset
+ */
 export const scrollToSection = (id: string) => {
   const element = document.getElementById(id);
   if (!element) return;
 
-  // Get the element's position relative to the viewport
-  const rect = element.getBoundingClientRect();
-  
-  // If we're already at the section (within 100px), scroll to top
-  // Otherwise scroll to the section
-  if (Math.abs(rect.top) < 100) {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  } else {
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-  }
+  const elementPosition = element.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - NAVBAR_HEIGHT;
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: 'smooth'
+  });
 };

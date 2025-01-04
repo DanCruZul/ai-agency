@@ -11,24 +11,29 @@ export const useNavigation = (onMenuClose?: () => void) => {
     href: string
   ) => {
     e.preventDefault();
-    scrollToSection(href);
     onMenuClose?.();
+
+    // Use RAF to ensure DOM updates complete
+    requestAnimationFrame(() => {
+      scrollToSection(href);
+    });
   };
 
   const handleCtaClick = () => {
+    onMenuClose?.();
+    
     if (window.location.pathname !== "/") {
       router.push("/");
-      setTimeout(() => {
-        scrollToSection("cta");
-      }, 100);
+      // Wait for page load before scrolling
+      setTimeout(() => scrollToSection("cta"), 100);
     } else {
       scrollToSection("cta");
     }
-    onMenuClose?.();
   };
 
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
+    onMenuClose?.();
     router.push("/");
   };
 
